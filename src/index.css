@@ -1,0 +1,134 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "tailwindcss";
+body {
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+@theme {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  --font-poppins: "Poppins", sans-serif;
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-2xl: 1320px;
+  --animate-slide-in: slide-in 400ms ease-out;
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+@theme {
+}
+
+@layer base {
+  body {
+    @apply font-poppins;
+  }
+
+  span,
+  a {
+    @apply inline-block;
+  }
+  button,
+  a {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md bg-gray-200 text-gray-900 hover:bg-gray-300 cursor-pointer transition-colors duration-200;
+  }
+  .form-control {
+    @apply px-3 py-2 outline-0 border rounded-md border-gray-400/40 focus:border-green-500 focus:outline-none;
+  }
+}
+
+@utility container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* @layer utilities {
+  .container {
+    @media (min-width: 640px) {
+      max-width: 540px;
+    }
+
+    @media (min-width: 768px) {
+      max-width: 720px;
+    }
+
+    @media (min-width: 1024px) {
+      max-width: 960px;
+    }
+
+    @media (min-width: 1280px) {
+      max-width: 1140px;
+    }
+
+    @media (min-width: 1400px) {
+      max-width: 1320px;
+    }
+  }
+} */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+.loader::after,
+.loader::before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-primary-800);
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  animation: rotation 2s ease-in-out infinite;
+}
+.loader::after {
+  border-color: var(--color-primary-500);
+  animation-delay: 1s;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply size-12! rounded-full bg-primary-400/50 after:text-lg! after:font-bold! after:text-white! hover:bg-primary-600/50 transition-colors duration-300;
+}
+
+.swiper-pagination-bullet-active {
+  @apply w-6! rounded-full! bg-white!;
+}
