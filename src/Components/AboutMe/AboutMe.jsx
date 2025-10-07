@@ -147,8 +147,8 @@ export default function AboutMe() {
               <div className="mt-7 flex flex-col sm:flex-row flex-wrap items-center gap-3">
                 {/* Download CV */}
                 <a
-                  href="/cv.pdf"
-                  download="Ahmed_Kholief_CV.pdf"
+                  href="Ahmed-Kholief-cv.pdf"
+                  download="Ahmed-Kholief-cv.pdf"
                   className="group relative inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium"
                 >
                   <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 to-primary-400 opacity-90 blur-[10px] transition group-hover:blur-[14px]" />

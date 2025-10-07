@@ -4,10 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/my-portfolio/",
-  server: {
-    historyApiFallback: true,
-  },
+  base: "/update-Portofolio/",
   build: {
     outDir: "dist",
   },

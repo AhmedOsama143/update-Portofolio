@@ -9,8 +9,8 @@ import {
   faUserCircle,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link, NavLink } from "react-router-dom";
 
-import { Link, NavLink } from "react-router";
 import { useState } from "react";
 
 export default function Navbar() {

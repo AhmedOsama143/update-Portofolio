@@ -1,28 +1,32 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Pages/Home/Home";
 import { ToastContainer } from "react-toastify";
 import Loading from "./Components/Loading/Loading";
 import { ThemeProvider } from "./Context/ThemeContext/ThemeContext";
 
-
 function App() {
-  const router = createBrowserRouter([
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Layout />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: "Loading",
+            element: <Loading />,
+          },
+        ],
+      },
+    ],
     {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: "Loading",
-          element: <Loading />,
-        },
-      ],
-    },
-  ]);
+      basename: "/update-Portofolio",
+    }
+  );
 
   return (
     <ThemeProvider>
