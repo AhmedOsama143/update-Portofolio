@@ -10,7 +10,7 @@ import Daniels from "../../assets/imgs/Daniels.png";
 // import GameZone from "../../assets/imgs/GameZone.PNG";
 // import Yummy from "../../assets/imgs/Yummy.PNG";
 import Weather from "../../assets/imgs/Weather.PNG";
-import Fashion from "../../assets/imgs/Fashion.PNG";
+import Fashion from "../../assets/imgs/Fashion.png";
 import Tomato from "../../assets/imgs/Tomato.PNG";
 import Iphone from "../../assets/imgs/Iphone.png";
 import Mealify from "../../assets/imgs/Mealify.PNG";
