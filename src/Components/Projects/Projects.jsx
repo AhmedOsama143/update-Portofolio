@@ -11,7 +11,7 @@ import Daniels from "../../assets/imgs/Daniels.png";
 // import Yummy from "../../assets/imgs/Yummy.PNG";
 import Weather from "../../assets/imgs/Weather.PNG";
 import Fashion from "../../assets/imgs/Fashion.png";
-import Tomato from "../../assets/imgs/Tomato.PNG";
+import Tomato from "../../assets/imgs/Tomato.png";
 import Iphone from "../../assets/imgs/Iphone.png";
 import Mealify from "../../assets/imgs/Mealify.PNG";
 import SimpleEcommerce from "../../assets/imgs/simple E-Commerce.png";
