@@ -1,4 +1,8 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+
 import {
   faBars,
   faCode,
@@ -45,13 +49,12 @@ export default function Navbar() {
               <li>
                 <a
                   href="#home"
-                  className="flex flex-col items-center gap-1 hover:text-primary-300 transition-colors"
+                  className="flex flex-col items-center gap-2 hover:text-primary-300 transition-colors"
                 >
-                  <FontAwesomeIcon icon={faHouse} />
+                  <FontAwesomeIcon icon={faHouse} className="" />
                   <span className="text-sm">Home</span>
                 </a>
               </li>
-
               <li>
                 <a
                   href="#about"
@@ -86,6 +89,27 @@ export default function Navbar() {
                 >
                   <FontAwesomeIcon icon={faPhone} className="" />
                   <span className="text-sm">Contact Me</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/AhmedOsama143"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1 text-3xl hover:text-primary-300 transition-colors"
+                >
+                  <FontAwesomeIcon icon={faGithub} />
+                  <span className="text-[14px]">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="Ahmed-Kholief-cv.pdf"
+                  download="Ahmed-Kholief-cv.pdf"
+                  className="flex flex-col items-center gap-1 text-white hover:text-primary-300 transition-colors"
+                >
+                  <FontAwesomeIcon icon={faDownload} className="text-2xl" />
+                  <span className="text-[14px]"> CV</span>
                 </a>
               </li>
             </ul>
@@ -188,6 +212,26 @@ export default function Navbar() {
                   >
                     <FontAwesomeIcon icon={faPhone} className="text-2xl" />
                     <span className="text-sm">Contact Me</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/AhmedOsama143"
+                    onClick={toggleMenu}
+                    className="flex gap-2 px-2 py-3 text-white rounded hover:text-primary-300"
+                  >
+                    <FontAwesomeIcon icon={faGithub} className="text-xl" />
+                    <span className="text-sm">GitHub</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="Ahmed-Kholief-cv.pdf"
+                    download="Ahmed-Kholief-cv.pdf"
+                    className="flex flex-col items-start  gap-1 text-white hover:text-primary-300 transition-colors"
+                  >
+                    <FontAwesomeIcon icon={faDownload} className="text-3xl" />
+                    <span className="text-[16px]"> CV</span>
                   </a>
                 </li>
               </ul>
