@@ -7,7 +7,7 @@ export default function HomeSkeleton() {
         title="Home Page | FreshCart"
         description="Discover fresh deals and best-selling products on FreshCart – your ultimate online grocery destination."
         keywords="FreshCart, grocery, deals, fresh food, online shopping, offers"
-        author="Mahmoud Osman"
+        author="Ahmed Kholief"
       />
 
       <HomeSlider />

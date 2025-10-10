@@ -111,24 +111,6 @@ export default function Projects() {
         "A modern and responsive personal portfolio template designed for developers, freelancers, or creatives.",
       category: "CSS & HTML",
     },
-    // {
-    //   title: "GameZone",
-    //   img: GameZone,
-    //   liveDemo: "https://mahmoudosman2611.github.io/Game-Zone/",
-    //   repo: "https://github.com/mahmoudosman2611/Game-Zone",
-    //   description:
-    //     "Game Zone is a free gaming website built using HTML, CSS, and Vanilla JavaScript.",
-    //   category: "JavaScript",
-    // },
-    // {
-    //   title: "Yummy",
-    //   img: Yummy,
-    //   liveDemo: "https://mahmoudosman2611.github.io/Yummy/",
-    //   repo: "https://github.com/mahmoudosman2611/Yummy",
-    //   description:
-    //     "Yummy is a website that offers delicious and healthy recipes in a simple way.",
-    //   category: "JavaScript",
-    // },
     {
       title: "Weather-app",
       img: Weather,
@@ -147,34 +129,6 @@ export default function Projects() {
       description:
         "Mealify is a web application that allows users to search for recipes based on their ingredients.",
     },
-
-    // {
-    //   title: "SmartLogin",
-    //   img: SmartLogin,
-    //   liveDemo: "https://mahmoudosman2611.github.io/Simple-smart-login/",
-    //   repo: "https://github.com/mahmoudosman2611/Simple-smart-login",
-    //   description:
-    //     "A responsive login system built with HTML, CSS, and JavaScript.",
-    //   category: "JavaScript",
-    // },
-    // {
-    //   title: "Bookmarker",
-    //   img: Bookmarker,
-    //   liveDemo: "https://mahmoudosman2611.github.io/Bookmark/",
-    //   repo: "https://github.com/mahmoudosman2611/Bookmark",
-    //   description:
-    //     "Bookmark Manager is a fast and responsive web app for saving and organizing your favorite websites.",
-    //   category: "JavaScript",
-    // },
-    // {
-    //   title: "Quotes Generator",
-    //   img: QuotesGenerator,
-    //   liveDemo: "https://mahmoudosman2611.github.io/simple-quotes-generator/",
-    //   repo: "https://github.com/mahmoudosman2611/simple-quotes-generator",
-    //   description:
-    //     "Simple Quotes Generator is a clean and responsive web app that displays a random quote.",
-    //   category: "JavaScript",
-    // },
   ];
 
   const filteredProjects =

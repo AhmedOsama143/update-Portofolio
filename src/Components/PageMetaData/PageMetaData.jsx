@@ -1,12 +1,12 @@
 import React from "react";
-
+import img from "../../assets/imgs/portofolio.png";
 export default function PageMetaData({
-  title = "Mahmoud Osman - Frontend Developer",
-  description = "Portfolio of Mahmoud Osman showcasing modern web development projects using React, TypeScript, and TailwindCSS.",
-  keywords = "Mahmoud Osman, Frontend Developer, React, TypeScript, JavaScript, Portfolio, Web Development, UI, UX",
-  author = "Mahmoud Osman",
-  image = "https://portfolio1993.netlify.app/previewimg.png",
-  url = "https://portfolio1993.netlify.app/",
+  title = "Ahmed Kholief - Frontend Developer",
+  description = "Portfolio of Ahmed Kholief showcasing modern web development projects using React, TypeScript, and TailwindCSS.",
+  keywords = "Ahmed Kholief, Frontend Developer, React, TypeScript, JavaScript, Portfolio, Web Development, UI, UX",
+  author = "Ahmed Kholief",
+  image = { img },
+  url = "https://ahmedosama143.github.io/update-Portofolio/",
 }) {
   return (
     <>
