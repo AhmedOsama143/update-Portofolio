@@ -109,7 +109,7 @@ export default function Navbar() {
                   className="flex flex-col items-center gap-1 text-white hover:text-primary-300 transition-colors"
                 >
                   <FontAwesomeIcon icon={faDownload} className="text-2xl" />
-                  <span className="text-[14px]"> CV</span>
+                  <span className="text-[15px]"> CV</span>
                 </a>
               </li>
             </ul>
