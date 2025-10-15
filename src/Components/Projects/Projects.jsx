@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import FreshCartImg from "../../assets/imgs/FreshCart.png";
+import Spylt from "../../assets/imgs/spylt.png";
 import FokirImg from "../../assets/imgs/Fokkir.png";
 import DevfolioImg from "../../assets/imgs/devfoilo.png";
 import Daniels from "../../assets/imgs/Daniels.png";
@@ -45,6 +46,15 @@ export default function Projects() {
       repo: "https://github.com/AhmedOsama143/FreshCart",
       description:
         "FreshCart is a fast and modern online store for fresh groceries and essentials. Enjoy easy browsing, secure checkout, and quick delivery to your door.",
+      category: "React",
+    },
+    {
+      title: "SPYLT CAN ANIMATION",
+      img: Spylt,
+      liveDemo: "https://ahmedosama143.github.io/SPYLT-Milk/",
+      repo: "https://github.com/AhmedOsama143/SPYLT-Milk",
+      description:
+        "SPYLT Milk is an interactive website showcasing protein drinks in a variety of flavors, featuring smooth browsing with GSAP animations. Videos and images are displayed dynamically, encouraging users to explore and engage with the products. The design is fully responsive, optimized for mobile, tablet, and desktop screens.",
       category: "React",
     },
 
