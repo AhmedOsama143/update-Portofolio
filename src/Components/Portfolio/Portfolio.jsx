@@ -74,7 +74,7 @@ export default function Portfolio() {
               <div className="mt-7 flex flex-col sm:flex-row flex-wrap items-center gap-1">
                 <a
                   href="#Projects"
-                  className="group relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium"
+                  className="group relative inline-flex items-center justify-center rounded-full  text-sm font-medium"
                 >
                   <span className="relative rounded-full  hover:bg-white/10 transition bg-black/60 px-6 py-3 border border-white/20">
                     View Projects
@@ -84,7 +84,7 @@ export default function Portfolio() {
                 <a
                   href="Ahmed-Kholief-cv.pdf"
                   download="Ahmed-Kholief-cv.pdf"
-                  className="group relative inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium"
+                  className="group relative inline-flex items-center justify-center rounded-full ms-4 text-sm font-medium"
                 >
                   <span className="relative rounded-full bg-black/60 px-5 py-2.5 hover:bg-white/10 transition border border-white/20">
                     Download CV
@@ -93,7 +93,7 @@ export default function Portfolio() {
               </div>
 
               {/* Social Icons */}
-              <div className="lottieIcons flex justify-center items-center gap-1 mt-4">
+              <div className="lottieIcons flex justify-start items-center gap-1 mt-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20">
                   <a target="_blank" href="https://github.com/AhmedOsama143">
                     <Lottie animationData={GitHubicon} loop autoplay />

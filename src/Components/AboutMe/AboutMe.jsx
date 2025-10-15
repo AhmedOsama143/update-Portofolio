@@ -149,7 +149,7 @@ export default function AboutMe() {
                 <a
                   href="Ahmed-Kholief-cv.pdf"
                   download="Ahmed-Kholief-cv.pdf"
-                  className="group relative inline-flex items-center justify-center rounded-full px-6 py-3 text-[16px] font-medium"
+                  className="group relative inline-flex items-center justify-center rounded-full  text-[16px] font-medium"
                 >
                   <span className="relative rounded-full  hover:bg-white/10 transition bg-black/60 px-5 py-2.5 border border-white/20">
                     Download CV

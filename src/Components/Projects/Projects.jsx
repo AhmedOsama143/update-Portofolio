@@ -42,7 +42,7 @@ export default function Projects() {
     {
       title: "Fresh Cart",
       img: FreshCartImg,
-      liveDemo: "https://fresh-cart-psi-five.vercel.app/signin",
+      liveDemo: "https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin",
       repo: "https://github.com/AhmedOsama143/FreshCart",
       description:
         "FreshCart is a fast and modern online store for fresh groceries and essentials. Enjoy easy browsing, secure checkout, and quick delivery to your door.",
@@ -57,9 +57,8 @@ export default function Projects() {
         "SPYLT Milk is an interactive website showcasing protein drinks in a variety of flavors, featuring smooth browsing with GSAP animations. Videos and images are displayed dynamically, encouraging users to explore and engage with the products. The design is fully responsive, optimized for mobile, tablet, and desktop screens.",
       category: "React",
     },
-
     {
-      title: "simple E-commerce",
+      title: "Cukur Store",
       img: SimpleEcommerce,
       liveDemo: "https://ahmedosama143.github.io/simple-E-Commerce/",
       repo: "https://github.com/AhmedOsama143/simple-E-Commerce",
@@ -67,6 +66,7 @@ export default function Projects() {
         "A React Router application created as a hands-on practice project to learn and improve routing skills in React.",
       category: "React",
     },
+
     {
       title: "Fashion",
       img: Fashion,

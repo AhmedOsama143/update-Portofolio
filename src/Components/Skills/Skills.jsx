@@ -94,7 +94,7 @@ export default function Skills() {
         <div className="text-center mb-6">
           <h2 className="relative inline-block text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary-300 via-primary-200 to-primary-50 bg-clip-text text-transparent drop-shadow-[0_0_14px_rgba(59,130,246,0.25)]">
             My Skills
-            <span className="absolute left-0 -bottom-2 h-1 w-full bg-gradient-to-r from-primary-500 via-primary-300 to-primary-50 rounded-full"></span>
+            <span className="absolute left-[30%] -bottom-2 h-1 w-[50%] bg-gradient-to-r from-primary-500 via-primary-300 to-primary-50 rounded-full"></span>
           </h2>
         </div>
         <p className="mx-auto mt-2 max-w-2xl text-center text-white/70">

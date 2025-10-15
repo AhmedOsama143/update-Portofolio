@@ -28,7 +28,7 @@ export default function Navbar() {
       <header>
         <div
           className="fixed top-0 left-0 right-0 z-50 shadow-md 
-          bg-white/10 backdrop-blur-md px-10 border-b border-white/20"
+          bg-white/10 backdrop-blur-md px-20 border-b border-white/20"
         >
           {/* Main Navbar */}
           <nav className="flex items-center justify-between py-4 gap-2">
@@ -45,7 +45,7 @@ export default function Navbar() {
               </h1>
             </div>
 
-            <ul className="hidden lg:flex items-center gap-15 text-white">
+            <ul className="hidden lg:flex items-center pt-2 gap-10 text-white">
               <li>
                 <a
                   href="#home"
@@ -98,8 +98,8 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="flex flex-col items-center gap-1 text-3xl hover:text-primary-300 transition-colors"
                 >
-                  <FontAwesomeIcon icon={faGithub} />
-                  <span className="text-[14px]">GitHub</span>
+                  <FontAwesomeIcon icon={faGithub} className="text-2xl" />
+                  <span className="text-sm">GitHub</span>
                 </a>
               </li>
               <li>
@@ -109,7 +109,7 @@ export default function Navbar() {
                   className="flex flex-col items-center gap-1 text-white hover:text-primary-300 transition-colors"
                 >
                   <FontAwesomeIcon icon={faDownload} className="text-2xl" />
-                  <span className="text-[15px]"> CV</span>
+                  <span className="text-sm"> CV</span>
                 </a>
               </li>
             </ul>
