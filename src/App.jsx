@@ -1,9 +1,19 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
-import Home from "./Pages/Home/Home";
-import { ToastContainer } from "react-toastify";
-import Loading from "./Components/Loading/Loading";
-import { ThemeProvider } from "./Context/ThemeContext/ThemeContext";
+
+const Home = lazy(() => import("./Pages/Home/Home"));
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <div className="h-10 w-10 rounded-full border-2 border-primary-400 border-t-transparent animate-spin" />
+        <p className="text-white/60 text-sm">Loading...</p>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   const router = createBrowserRouter(
@@ -14,11 +24,11 @@ function App() {
         children: [
           {
             index: true,
-            element: <Home />,
-          },
-          {
-            path: "Loading",
-            element: <Loading />,
+            element: (
+              <Suspense fallback={<LoadingFallback />}>
+                <Home />
+              </Suspense>
+            ),
           },
         ],
       },
@@ -28,17 +38,7 @@ function App() {
     }
   );
 
-  return (
-    <ThemeProvider>
-      <RouterProvider router={router} />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        closeButton={false}
-        closeOnClick={true}
-      />
-    </ThemeProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

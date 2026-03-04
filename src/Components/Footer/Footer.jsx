@@ -14,8 +14,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
+const RING_RADIUS = 18;
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +28,20 @@ export default function Footer() {
         const sectionHeight = firstSection.offsetHeight;
         setIsVisible(window.scrollY > sectionHeight);
       }
+
+      const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollHeight > 0) {
+        setScrollProgress(window.scrollY / scrollHeight);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const strokeDashoffset = RING_CIRCUMFERENCE * (1 - scrollProgress);
+
   return (
     <footer
       id="Footer"
@@ -70,7 +83,7 @@ export default function Footer() {
             </h2>
             <p className="text-white/70">
               Frontend Developer — I build fast, accessible, and scalable web
-              UIs. Let’s craft delightful user experiences.
+              UIs. Let's craft delightful user experiences.
             </p>
           </div>
 
@@ -81,10 +94,10 @@ export default function Footer() {
               {[
                 { href: "#about", label: "About" },
                 { href: "#skills", label: "Skills" },
-                { href: "#Projects", label: "Projects" },
-                { href: "#ContactMe", label: "Contact" },
+                { href: "#projects", label: "Projects" },
+                { href: "#contact", label: "Contact" },
                 {
-                  href: "/Ahmed_Kholief_CV.pdf",
+                  href: "Ahmed-Kholief-cv.pdf",
                   label: "Download CV",
                   external: true,
                   download: true,
@@ -124,7 +137,7 @@ export default function Footer() {
                 <a
                   href="mailto:ahmedkholief143@gmail.com"
                   className="flex-1 min-w-0 break-words leading-5 outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 rounded-sm"
-                  aria-label="Send email to mahmoudosmann2018@gmail.com"
+                  aria-label="Send email to ahmedkholief143@gmail.com"
                 >
                   ahmedkholief143@gmail.com
                 </a>
@@ -216,7 +229,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Back to top */}
+      {/* Back to top with progress ring */}
       {isVisible && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -224,8 +237,45 @@ export default function Footer() {
           className="fixed bottom-6 right-6 z-[60] group"
         >
           <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-primary-500 to-primary-400 blur-[14px] opacity-60 group-hover:opacity-80 transition" />
-          <span className="inline-flex items-center justify-center rounded-full bg-primary-600 hover:bg-primary-700 text-white h-11 w-11 shadow-lg transition">
-            <FontAwesomeIcon icon={faArrowUp} />
+          <span className="relative inline-flex items-center justify-center h-12 w-12">
+            {/* SVG progress ring */}
+            <svg
+              className="absolute inset-0 h-full w-full"
+              viewBox="0 0 44 44"
+            >
+              {/* Track circle */}
+              <circle
+                cx="22"
+                cy="22"
+                r={RING_RADIUS}
+                fill="none"
+                stroke="rgba(255,255,255,0.15)"
+                strokeWidth="3"
+              />
+              {/* Progress circle */}
+              <circle
+                cx="22"
+                cy="22"
+                r={RING_RADIUS}
+                fill="none"
+                stroke="url(#progressGradient)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeDasharray={RING_CIRCUMFERENCE}
+                strokeDashoffset={strokeDashoffset}
+                className="progress-ring-circle"
+              />
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#2563eb" />
+                  <stop offset="100%" stopColor="#60a5fa" />
+                </linearGradient>
+              </defs>
+            </svg>
+            {/* Arrow icon */}
+            <span className="relative inline-flex items-center justify-center rounded-full bg-primary-600 hover:bg-primary-700 text-white h-9 w-9 shadow-lg transition">
+              <FontAwesomeIcon icon={faArrowUp} />
+            </span>
           </span>
         </button>
       )}

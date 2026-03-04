@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import {
   faHtml5,
   faCss3Alt,
@@ -24,60 +22,77 @@ import {
 import FloatingFAIcons from "../BubblesBackground/FloatingFAIcons";
 
 export default function Skills() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
   useEffect(() => {
-    AOS.init({ duration: 300, once: false, offset: 100 });
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   const skills = [
-    { name: "HTML", icon: faHtml5, color: "text-orange-500", percent: 99 },
-    { name: "CSS", icon: faCss3Alt, color: "text-blue-500", percent: 98 },
+    { name: "HTML", icon: faHtml5, color: "text-orange-500", percent: 95 },
+    { name: "CSS", icon: faCss3Alt, color: "text-blue-500", percent: 90 },
     {
       name: "Bootstrap",
       icon: faBootstrap,
       color: "text-violet-600",
-      percent: 97,
+      percent: 85,
     },
-    { name: "JavaScript", icon: faJs, color: "text-yellow-500", percent: 98 },
-    { name: "React", icon: faReact, color: "text-sky-500", percent: 97 },
-    { name: "Next.js", icon: faCode, color: "text-gray-300", percent: 96 },
-    { name: "Tailwind", icon: faWind, color: "text-cyan-300", percent: 97 },
-    { name: "Sass", icon: faSass, color: "text-pink-400", percent: 75 },
-    { name: "TypeScript", icon: faCode, color: "text-blue-300", percent: 95 },
+    { name: "JavaScript", icon: faJs, color: "text-yellow-500", percent: 90 },
+    { name: "React", icon: faReact, color: "text-sky-500", percent: 88 },
+    { name: "Next.js", icon: faCode, color: "text-gray-300", percent: 70 },
+    { name: "Tailwind", icon: faWind, color: "text-cyan-300", percent: 88 },
+    { name: "Sass", icon: faSass, color: "text-pink-400", percent: 60 },
+    { name: "TypeScript", icon: faCode, color: "text-blue-300", percent: 65 },
     {
       name: "Redux",
       icon: faDiagramProject,
       color: "text-purple-400",
-      percent: 95,
+      percent: 72,
     },
     {
       name: "Git & GitHub",
       icon: faGitAlt,
       color: "text-red-400",
-      percent: 98,
+      percent: 85,
     },
     {
       name: "Responsive Design",
       icon: faMobileAlt,
       color: "text-emerald-300",
-      percent: 99,
+      percent: 92,
     },
     {
       name: "REST APIs",
       icon: faServer,
       color: "text-indigo-300",
-      percent: 97,
+      percent: 78,
     },
     {
       name: "HTTP / JSON",
       icon: faCloud,
       color: "text-slate-300",
-      percent: 96,
+      percent: 80,
     },
-    { name: "Debugging", icon: faBug, color: "text-amber-300", percent: 95 },
+    { name: "Debugging", icon: faBug, color: "text-amber-300", percent: 75 },
   ];
 
   return (
     <section
+      ref={sectionRef}
       id="skills"
       className="relative scroll-mt-28 bg-black text-white py-16 md:py-20 overflow-hidden"
     >
@@ -98,7 +113,7 @@ export default function Skills() {
           </h2>
         </div>
         <p className="mx-auto mt-2 max-w-2xl text-center text-white/70">
-          A focused stack for building fast, accessible, pixel–true interfaces.
+          A focused stack for building fast, accessible, pixel-true interfaces.
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -125,11 +140,14 @@ export default function Skills() {
                     <h3 className="text-base md:text-lg font-semibold text-white">
                       {s.name}
                     </h3>
+                    <span className="text-xs text-white/60 font-mono">
+                      {s.percent}%
+                    </span>
                   </div>
                   <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-primary-600 via-primary-500 to-primary-300 shadow-[0_0_10px_rgba(59,130,246,0.45)_inset]"
-                      style={{ width: `${s.percent}%` }}
+                      className="skill-bar-fill h-full rounded-full bg-gradient-to-r from-primary-600 via-primary-500 to-primary-300 shadow-[0_0_10px_rgba(59,130,246,0.45)_inset]"
+                      style={{ width: isVisible ? `${s.percent}%` : "0%" }}
                     />
                   </div>
                 </div>

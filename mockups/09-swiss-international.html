@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kholief — Swiss International</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Helvetica,Arial,sans-serif;color:#111;background:#fff;line-height:1.5}
+a{color:#ff0000;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 48px}
+
+/* Grid overlay */
+.grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(0,0,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:-1}
+
+/* Hero */
+.hero{padding:96px 0 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;border-bottom:2px solid #111}
+.hero-left .hero-num{font-size:120px;font-weight:900;line-height:1;color:#ff0000;margin-bottom:8px}
+.hero-left h1{font-size:48px;font-weight:700;line-height:1.1;margin-bottom:8px}
+.hero-right{padding-bottom:12px}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;color:#999}
+.hero-tagline{font-size:15px;color:#444;margin-bottom:24px}
+.skills-swiss{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.skills-swiss span{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#111}
+.skills-swiss span::before{content:"— ";color:#ff0000}
+.social-swiss{display:flex;gap:24px}
+.social-swiss a{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+
+/* Projects */
+.projects{padding:64px 0 96px}
+.projects-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:48px}
+.projects-header h2{font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.projects-header span{font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase}
+.project-list{display:grid;gap:0}
+.project-row{display:grid;grid-template-columns:60px 1fr 2fr auto;gap:24px;padding:20px 0;border-top:1px solid #ddd;align-items:start}
+.project-num{font-size:36px;font-weight:900;color:#ff0000;line-height:1}
+.project-row h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.project-row p{font-size:13px;color:#666;line-height:1.5}
+.project-row a{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+
+/* Footer */
+footer{border-top:2px solid #111;padding:24px 0;display:flex;justify-content:space-between;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#999}
+
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;gap:24px}
+  .hero-left .hero-num{font-size:72px}
+  .project-row{grid-template-columns:40px 1fr;gap:12px}
+  .project-row p{grid-column:1/-1}
+  .project-row a{grid-column:1/-1}
+  .container{padding:0 24px}
+  footer{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="container">
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-num">AK</div>
+      <h1>Ahmed<br>Kholief</h1>
+    </div>
+    <div class="hero-right">
+      <p class="hero-label">Frontend Developer</p>
+      <p class="hero-tagline">Building Modern Web Applications. Crafting Pixel-Perfect UIs. Shipping Fast &amp; Accessible Sites.</p>
+      <div class="skills-swiss">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+      </div>
+      <div class="social-swiss">
+        <a href="https://github.com/AhmedOsama143" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ahmedkholief/" target="_blank">LinkedIn</a>
+        <a href="mailto:ahmedkholief143@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="projects-header">
+      <h2>Selected Projects</h2>
+      <span>01–06</span>
+    </div>
+    <div class="project-list">
+      <div class="project-row"><div class="project-num">01</div><div><h3>Signature Stays</h3></div><div><p>Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, and booking search.</p></div><div><a href="https://signaturestays.io/" target="_blank">View ↗</a></div></div>
+      <div class="project-row"><div class="project-num">02</div><div><h3>Studiio</h3></div><div><p>Studio management SaaS for gyms and fitness centers with bilingual English/Arabic support.</p></div><div><a href="https://studiio-app.netlify.app/" target="_blank">View ↗</a></div></div>
+      <div class="project-row"><div class="project-num">03</div><div><h3>Toko Store</h3></div><div><p>E-commerce platform for collectible 3D-printed characters and mystery boxes.</p></div><div><a href="https://toko.mantaray.digital/" target="_blank">View ↗</a></div></div>
+      <div class="project-row"><div class="project-num">04</div><div><h3>Studiofy</h3></div><div><p>AI-powered product photography SaaS that transforms images with studio backgrounds in under 60 seconds.</p></div><div><a href="https://web-production-5875b.up.railway.app/login" target="_blank">View ↗</a></div></div>
+      <div class="project-row"><div class="project-num">05</div><div><h3>MediFlow Booking</h3></div><div><p>Patient-facing booking interface for clinics with bilingual English/Arabic appointment scheduling.</p></div><div><a href="https://mediflow-clinic.netlify.app/en/book/admin-ml9boma0" target="_blank">View ↗</a></div></div>
+      <div class="project-row"><div class="project-num">06</div><div><h3>Fresh Cart</h3></div><div><p>Online grocery store with React featuring easy browsing, secure checkout, and quick delivery.</p></div><div><a href="https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin" target="_blank">View ↗</a></div></div>
+    </div>
+  </section>
+</div>
+<footer class="container">
+  <span>© 2025 Ahmed Kholief</span>
+  <span>All Rights Reserved</span>
+</footer>
+</body>
+</html>

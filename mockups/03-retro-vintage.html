@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kholief — Retro Vintage</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Lora",Georgia,serif;color:#3e2f1c;background:#f5f0e8;line-height:1.7;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
+a{color:#7a3b2e;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+
+/* Ornament */
+.ornament{text-align:center;font-size:24px;color:#b8956a;letter-spacing:12px;padding:12px 0}
+
+/* Hero */
+.hero{padding:80px 0 48px;text-align:center;border-bottom:2px solid #d4c4a8}
+.hero-label{font-size:13px;letter-spacing:5px;text-transform:uppercase;color:#9a8564;margin-bottom:12px}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(36px,6vw,64px);font-weight:700;color:#2c1e0f;margin-bottom:8px}
+.hero-tagline{font-family:"Playfair Display",serif;font-style:italic;font-size:18px;color:#6b5740;max-width:500px;margin:0 auto 28px}
+.skills-vintage{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.skills-vintage span{font-size:12px;padding:4px 14px;border:1px solid #c4b08e;color:#7a6548;letter-spacing:1px}
+.social-vintage{display:flex;gap:24px;justify-content:center}
+.social-vintage a{font-size:13px;color:#9a8564;letter-spacing:2px;text-transform:uppercase;border-bottom:1px dashed #c4b08e;padding-bottom:2px}
+
+/* Divider */
+.divider{text-align:center;padding:24px 0;color:#c4b08e;font-size:20px;letter-spacing:8px}
+
+/* Projects */
+.projects{padding:48px 0}
+.section-title{font-family:"Playfair Display",serif;font-size:32px;text-align:center;margin-bottom:40px;color:#2c1e0f}
+.project-columns{column-count:2;column-gap:40px}
+.project-item{break-inside:avoid;border:1px solid #d4c4a8;padding:24px;margin-bottom:24px;background:#faf6ee}
+.project-item h3{font-family:"Playfair Display",serif;font-size:20px;color:#2c1e0f;margin-bottom:6px}
+.project-item p{font-size:14px;color:#6b5740;margin-bottom:12px}
+.project-item a{font-size:12px;color:#7a3b2e;text-transform:uppercase;letter-spacing:2px;border-bottom:1px solid #c4b08e;padding-bottom:1px}
+
+/* Footer */
+footer{border-top:2px solid #d4c4a8;padding:32px 0;text-align:center;font-size:13px;color:#9a8564;letter-spacing:1px}
+
+@media(max-width:640px){
+  .project-columns{column-count:1}
+  .hero{padding:60px 0 36px}
+}
+</style>
+</head>
+<body>
+<div class="ornament">❧ ❦ ❧</div>
+<div class="container">
+  <section class="hero">
+    <p class="hero-label">Frontend Developer</p>
+    <h1>Ahmed Kholief</h1>
+    <p class="hero-tagline">"Building Modern Web Applications, Crafting Pixel-Perfect UIs, Shipping Fast &amp; Accessible Sites."</p>
+    <div class="skills-vintage">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+    </div>
+    <div class="social-vintage">
+      <a href="https://github.com/AhmedOsama143" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/ahmedkholief/" target="_blank">LinkedIn</a>
+      <a href="mailto:ahmedkholief143@gmail.com">E-Mail</a>
+    </div>
+  </section>
+
+  <div class="divider">— ✦ —</div>
+
+  <section class="projects">
+    <h2 class="section-title">Selected Works</h2>
+    <div class="project-columns">
+      <div class="project-item"><h3>Signature Stays</h3><p>Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, and booking search.</p><a href="https://signaturestays.io/" target="_blank">View Project →</a></div>
+      <div class="project-item"><h3>Studiio</h3><p>Studio management SaaS for gyms and fitness centers with bilingual English/Arabic support.</p><a href="https://studiio-app.netlify.app/" target="_blank">View Project →</a></div>
+      <div class="project-item"><h3>Toko Store</h3><p>E-commerce platform for collectible 3D-printed characters and mystery boxes.</p><a href="https://toko.mantaray.digital/" target="_blank">View Project →</a></div>
+      <div class="project-item"><h3>Studiofy</h3><p>AI-powered product photography SaaS that transforms images with studio backgrounds in under 60 seconds.</p><a href="https://web-production-5875b.up.railway.app/login" target="_blank">View Project →</a></div>
+      <div class="project-item"><h3>MediFlow Booking</h3><p>Patient-facing booking interface for clinics with bilingual English/Arabic appointment scheduling.</p><a href="https://mediflow-clinic.netlify.app/en/book/admin-ml9boma0" target="_blank">View Project →</a></div>
+      <div class="project-item"><h3>Fresh Cart</h3><p>Online grocery store with React featuring easy browsing, secure checkout, and quick delivery.</p><a href="https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin" target="_blank">View Project →</a></div>
+    </div>
+  </section>
+</div>
+<footer><div class="container">© 2025 Ahmed Kholief. All rights reserved.</div></footer>
+<div class="ornament">❧ ❦ ❧</div>
+</body>
+</html>

@@ -1,10 +1,27 @@
-# FreshCart | E-Commerce | Store 
+# Ahmed Kholief - Portfolio
 
-##pachages
-[1] Design [UI] styles >>>>Tailwind
-[2] Icons              >>>>Fontawsom 
-[3] Routing            >>>>React Router
-[4] API                >>>>Axios
-[5] workin with Forms  >>>>Formik&Yup
-[6] Validation         >>>>Yup
-[7] Fonts              >>>>Fontsource
+Personal portfolio website showcasing my frontend development projects and skills.
+
+## Tech Stack
+
+- **Framework**: React 19 + Vite
+- **Styling**: Tailwind CSS 4
+- **Routing**: React Router v6
+- **Animations**: AOS, Animate.css, Lottie
+- **Icons**: Font Awesome
+- **Forms**: Formik + Yup
+- **Fonts**: Poppins (Fontsource)
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Build & Deploy
+
+```bash
+npm run build
+npm run deploy   # deploys to GitHub Pages
+```

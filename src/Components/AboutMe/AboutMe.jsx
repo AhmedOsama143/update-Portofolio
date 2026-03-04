@@ -1,14 +1,15 @@
 import React from "react";
-import aboutImg from "../../assets/imgs/AhmedKholiefIMG.jpg";
+import aboutImg from "../../assets/imgs/AhmedKholiefIMG.webp";
 import FloatingFAIcons from "../BubblesBackground/FloatingFAIcons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
-import { FaWhatsapp } from "react-icons/fa";
 import {
   faBootstrap,
   faCss3Alt,
   faHtml5,
   faJs,
   faReact,
+  faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function AboutMe() {
@@ -49,7 +50,7 @@ export default function AboutMe() {
       {/* Content */}
       <div className="relative container mx-auto px-6 md:px-20">
         {/* Header */}
-        <header className="max-w-3xl" data-aos="fade-up">
+        <header className="max-w-3xl" data-aos="fade-right">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs md:text-sm tracking-wider border border-white/20">
             <span className="h-2 w-2 rounded-full bg-primary-400 shadow-[0_0_10px_rgba(96,165,250,0.9)]" />
             ABOUT ME
@@ -133,7 +134,7 @@ export default function AboutMe() {
           <div className="order-2 lg:order-none space-y-7">
             <div
               className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-md shadow-[0_0_30px_rgba(59,130,246,0.10)]"
-              data-aos="fade-left"
+              data-aos="zoom-in"
             >
               <h3 className="text-xl font-semibold text-primary-200">
                 Quick Overview
@@ -163,7 +164,7 @@ export default function AboutMe() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm hover:bg-white/10 transition"
                 >
-                  <FaWhatsapp className="text-green-500 text-lg" />
+                  <FontAwesomeIcon icon={faWhatsapp} className="text-green-500 text-lg" />
                   Contact Me
                 </a>
               </div>
@@ -172,7 +173,7 @@ export default function AboutMe() {
             {/* Highlights */}
             <div
               className="grid sm:grid-cols-3 gap-4"
-              data-aos="fade-up"
+              data-aos="fade-right"
               data-aos-delay="150"
             >
               {[
@@ -195,7 +196,7 @@ export default function AboutMe() {
             {/* Stack */}
             <div
               className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8"
-              data-aos="fade-up"
+              data-aos="zoom-in"
               data-aos-delay="200"
             >
               <h3 className="text-lg font-semibold text-primary-200">
@@ -225,38 +226,6 @@ export default function AboutMe() {
         </div>
       </div>
 
-      {/* Local styles */}
-      <style>{`
-        @keyframes float {
-          0%,100% { transform: translateY(0) translateX(0); }
-          50% { transform: translateY(-12px) translateX(6px); }
-        }
-        .aurora {
-          background:
-            radial-gradient(closest-side, rgba(59,130,246,0.35), transparent 70%),
-            radial-gradient(closest-side, rgba(29,78,216,0.30), transparent 60%);
-          animation: float 8s ease-in-out infinite;
-        }
-        .aurora-2 {
-          background:
-            radial-gradient(closest-side, rgba(29,78,216,0.35), transparent 70%),
-            radial-gradient(closest-side, rgba(59,130,246,0.25), transparent 60%);
-          animation: float 10s ease-in-out infinite reverse;
-        }
-        .stars {
-          background-image:
-            radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.9), transparent 60%),
-            radial-gradient(1.5px 1.5px at 80% 20%, rgba(255,255,255,0.8), transparent 60%),
-            radial-gradient(1.8px 1.8px at 60% 70%, rgba(255,255,255,0.85), transparent 60%),
-            radial-gradient(1.2px 1.2px at 30% 80%, rgba(255,255,255,0.8), transparent 60%),
-            radial-gradient(1.3px 1.3px at 50% 50%, rgba(255,255,255,0.75), transparent 60%);
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .aurora, .aurora-2 { animation: none !important; }
-        }
-      `}</style>
     </section>
   );
 }

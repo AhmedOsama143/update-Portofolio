@@ -1,27 +1,26 @@
 import AboutMe from "../../Components/AboutMe/AboutMe";
 import ContactMe from "../../Components/ContactMe/ContactMe";
-import PageMetaData from "../../Components/PageMetaData/PageMetaData";
 import Portfolio from "../../Components/Portfolio/Portfolio";
 import Projects from "../../Components/Projects/Projects";
 import Skills from "../../Components/Skills/Skills";
+import Timeline from "../../Components/Timeline/Timeline";
+import SEO from "../../Components/SEO/SEO";
 
 export default function Home() {
   return (
-    <>
-      <div id="home">
-        <PageMetaData
-          title="Ahmed Kholief -Frontend Developer"
-          description="Discover fresh deals and best-selling products on FreshCart – your ultimate online grocery destination."
-          keywords="FreshCart, grocery, deals, fresh food, online shopping, offers"
-          author="Ahmed Kholief"
-        />
-
-        <Portfolio />
-        <AboutMe />
-        <Skills />
-        <Projects />
-        <ContactMe />
-      </div>
-    </>
+    <div id="home">
+      <SEO />
+      <Portfolio />
+      <div className="section-divider" />
+      <AboutMe />
+      <div className="section-divider" />
+      <Skills />
+      <div className="section-divider" />
+      <Timeline />
+      <div className="section-divider" />
+      <Projects />
+      <div className="section-divider" />
+      <ContactMe />
+    </div>
   );
 }

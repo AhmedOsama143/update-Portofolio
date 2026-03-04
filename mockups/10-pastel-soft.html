@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kholief — Pastel Soft</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Quicksand",sans-serif;color:#4a3f6b;background:linear-gradient(135deg,#fce4ec 0%,#f3e5f5 30%,#e8eaf6 60%,#e0f7fa 100%);min-height:100vh;line-height:1.6}
+a{color:#7c4dff;text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* Hero */
+.hero{padding:100px 0 60px;text-align:center}
+.hero-card{background:rgba(255,255,255,0.7);border-radius:32px;padding:56px 40px;box-shadow:0 20px 60px rgba(150,120,200,0.1)}
+.hero-label{display:inline-block;background:linear-gradient(135deg,#ce93d8,#90caf9);color:#fff;padding:8px 28px;border-radius:50px;font-size:13px;font-weight:600;letter-spacing:2px;margin-bottom:24px}
+.hero h1{font-size:clamp(36px,6vw,56px);font-weight:700;color:#5c3d8f;margin-bottom:12px}
+.hero-tagline{font-size:16px;color:#7e6ba3;max-width:480px;margin:0 auto 32px}
+.skills-pastel{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.skills-pastel span{background:rgba(255,255,255,0.8);padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;color:#7c6bad;box-shadow:0 4px 16px rgba(150,120,200,0.08)}
+.social-pastel{display:flex;gap:12px;justify-content:center}
+.social-pastel a{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.8);padding:10px 24px;border-radius:50px;font-size:13px;font-weight:600;box-shadow:0 4px 16px rgba(150,120,200,0.08);transition:transform .3s,box-shadow .3s}
+.social-pastel a:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(150,120,200,0.15)}
+
+/* Projects */
+.projects{padding:40px 0 80px}
+.section-title{text-align:center;font-size:32px;font-weight:700;color:#5c3d8f;margin-bottom:48px}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.project-card{background:rgba(255,255,255,0.75);border-radius:24px;padding:28px;box-shadow:0 12px 40px rgba(150,120,200,0.08);transition:transform .3s,box-shadow .3s;animation:float 6s ease-in-out infinite;animation-delay:var(--delay,0s)}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(150,120,200,0.15)}
+.project-card:nth-child(1){--delay:0s;}.project-card:nth-child(2){--delay:1s;}.project-card:nth-child(3){--delay:2s;}.project-card:nth-child(4){--delay:0.5s;}.project-card:nth-child(5){--delay:1.5s;}.project-card:nth-child(6){--delay:2.5s;}
+.project-img{width:100%;height:180px;border-radius:16px;margin-bottom:20px}
+.project-card:nth-child(1) .project-img{background:#f8bbd0}
+.project-card:nth-child(2) .project-img{background:#b2dfdb}
+.project-card:nth-child(3) .project-img{background:#c5cae9}
+.project-card:nth-child(4) .project-img{background:#ffe0b2}
+.project-card:nth-child(5) .project-img{background:#d1c4e9}
+.project-card:nth-child(6) .project-img{background:#b3e5fc}
+.project-card h3{font-size:18px;font-weight:700;color:#5c3d8f;margin-bottom:8px}
+.project-card p{font-size:14px;color:#7e6ba3;margin-bottom:16px}
+.project-card a{display:inline-block;padding:8px 24px;border-radius:50px;background:linear-gradient(135deg,#ce93d8,#90caf9);color:#fff;font-size:13px;font-weight:600;transition:opacity .3s}
+.project-card a:hover{opacity:.85}
+
+/* Footer */
+footer{padding:40px 0;text-align:center;font-size:13px;color:#b0a0c8}
+
+@media(max-width:640px){
+  .hero{padding:60px 0 40px}
+  .hero-card{padding:36px 20px}
+  .project-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-label">Frontend Developer</div>
+      <h1>Ahmed Kholief</h1>
+      <p class="hero-tagline">Building Modern Web Applications. Crafting Pixel-Perfect UIs. Shipping Fast &amp; Accessible Sites.</p>
+      <div class="skills-pastel">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+      </div>
+      <div class="social-pastel">
+        <a href="https://github.com/AhmedOsama143" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ahmedkholief/" target="_blank">LinkedIn</a>
+        <a href="mailto:ahmedkholief143@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card"><div class="project-img"></div><h3>Signature Stays</h3><p>Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, and booking search.</p><a href="https://signaturestays.io/" target="_blank">View Demo →</a></div>
+      <div class="project-card"><div class="project-img"></div><h3>Studiio</h3><p>Studio management SaaS for gyms and fitness centers with bilingual English/Arabic support.</p><a href="https://studiio-app.netlify.app/" target="_blank">View Demo →</a></div>
+      <div class="project-card"><div class="project-img"></div><h3>Toko Store</h3><p>E-commerce platform for collectible 3D-printed characters and mystery boxes.</p><a href="https://toko.mantaray.digital/" target="_blank">View Demo →</a></div>
+      <div class="project-card"><div class="project-img"></div><h3>Studiofy</h3><p>AI-powered product photography SaaS that transforms images with studio backgrounds in under 60 seconds.</p><a href="https://web-production-5875b.up.railway.app/login" target="_blank">View Demo →</a></div>
+      <div class="project-card"><div class="project-img"></div><h3>MediFlow Booking</h3><p>Patient-facing booking interface for clinics with bilingual English/Arabic appointment scheduling.</p><a href="https://mediflow-clinic.netlify.app/en/book/admin-ml9boma0" target="_blank">View Demo →</a></div>
+      <div class="project-card"><div class="project-img"></div><h3>Fresh Cart</h3><p>Online grocery store with React featuring easy browsing, secure checkout, and quick delivery.</p><a href="https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin" target="_blank">View Demo →</a></div>
+    </div>
+  </section>
+</div>
+<footer>© 2025 Ahmed Kholief. All rights reserved.</footer>
+</body>
+</html>

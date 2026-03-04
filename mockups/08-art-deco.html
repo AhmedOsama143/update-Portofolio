@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kholief — Art Deco</title>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Raleway",sans-serif;color:#d4af37;background:#1a1a2e;line-height:1.6}
+a{color:#d4af37;text-decoration:none}
+.container{max-width:1000px;margin:0 auto;padding:0 32px}
+
+/* Geometric patterns */
+.geo-line{height:3px;background:linear-gradient(90deg,transparent,#d4af37,transparent);margin:32px 0}
+.geo-border{border:2px solid #d4af37;padding:4px}
+.geo-border-inner{border:1px solid #d4af37;padding:32px}
+
+/* Fan decoration */
+.fan{text-align:center;padding:24px 0;font-size:28px;letter-spacing:16px;color:#d4af37;opacity:.6}
+
+/* Hero */
+.hero{padding:80px 0 48px;text-align:center}
+.hero-label{font-family:"Poiret One",cursive;font-size:14px;letter-spacing:8px;text-transform:uppercase;color:#8a7a3a;margin-bottom:24px}
+.hero h1{font-family:"Poiret One",cursive;font-size:clamp(40px,7vw,80px);letter-spacing:8px;text-transform:uppercase;color:#d4af37;margin-bottom:12px;text-shadow:0 0 40px rgba(212,175,55,0.15)}
+.hero-tagline{font-size:15px;color:#8a8a8a;max-width:500px;margin:0 auto 32px;font-weight:300;letter-spacing:1px}
+.skills-deco{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.skills-deco span{font-family:"Poiret One",cursive;font-size:14px;padding:6px 20px;border:1px solid #4a3d15;letter-spacing:3px}
+.social-deco{display:flex;gap:32px;justify-content:center}
+.social-deco a{font-family:"Poiret One",cursive;font-size:14px;letter-spacing:4px;text-transform:uppercase;border-bottom:1px solid #4a3d15;padding-bottom:4px;transition:border-color .3s}
+.social-deco a:hover{border-color:#d4af37}
+
+/* Projects */
+.projects{padding:48px 0 80px}
+.section-title{font-family:"Poiret One",cursive;font-size:32px;text-align:center;letter-spacing:8px;text-transform:uppercase;margin-bottom:48px}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.project-frame{transition:box-shadow .3s}
+.project-frame:hover{box-shadow:0 0 30px rgba(212,175,55,0.15)}
+.project-img{width:100%;height:180px;background:#12122a;border:1px solid #3a3050}
+.project-content{padding-top:20px}
+.project-content h3{font-family:"Poiret One",cursive;font-size:20px;letter-spacing:4px;margin-bottom:8px}
+.project-content p{font-size:13px;color:#8a8a8a;font-weight:300;margin-bottom:16px;line-height:1.6}
+.project-content a{font-family:"Poiret One",cursive;font-size:12px;letter-spacing:4px;text-transform:uppercase;border:1px solid #4a3d15;padding:6px 20px;display:inline-block;transition:all .3s}
+.project-content a:hover{background:#d4af37;color:#1a1a2e}
+
+/* Chevron decoration */
+.chevrons{text-align:center;padding:16px 0}
+.chevrons::before{content:"◆ ◇ ◆ ◇ ◆";letter-spacing:12px;color:#4a3d15;font-size:10px}
+
+/* Footer */
+footer{border-top:2px solid #d4af37;padding:32px 0;text-align:center;font-family:"Poiret One",cursive;font-size:13px;color:#4a3d15;letter-spacing:4px}
+
+@media(max-width:640px){
+  .project-grid{grid-template-columns:1fr}
+  .hero{padding:60px 0 36px}
+  .geo-border-inner{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="fan">▽ △ ▽ △ ▽</div>
+<div class="container">
+  <section class="hero">
+    <p class="hero-label">— Frontend Developer —</p>
+    <h1>Ahmed Kholief</h1>
+    <p class="hero-tagline">Building Modern Web Applications. Crafting Pixel-Perfect UIs. Shipping Fast &amp; Accessible Sites.</p>
+    <div class="skills-deco">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+    </div>
+    <div class="social-deco">
+      <a href="https://github.com/AhmedOsama143" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/ahmedkholief/" target="_blank">LinkedIn</a>
+      <a href="mailto:ahmedkholief143@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <div class="geo-line"></div>
+  <div class="chevrons"></div>
+  <div class="geo-line"></div>
+
+  <section class="projects">
+    <h2 class="section-title">— Portfolio —</h2>
+    <div class="project-grid">
+      <div class="geo-border project-frame"><div class="geo-border-inner">
+        <div class="project-img"></div>
+        <div class="project-content"><h3>Signature Stays</h3><p>Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, and booking search.</p><a href="https://signaturestays.io/" target="_blank">View ↗</a></div>
+      </div></div>
+      <div class="geo-border project-frame"><div class="geo-border-inner">
+        <div class="project-img"></div>
+        <div class="project-content"><h3>Studiio</h3><p>Studio management SaaS for gyms and fitness centers with bilingual English/Arabic support.</p><a href="https://studiio-app.netlify.app/" target="_blank">View ↗</a></div>
+      </div></div>
+      <div class="geo-border project-frame"><div class="geo-border-inner">
+        <div class="project-img"></div>
+        <div class="project-content"><h3>Toko Store</h3><p>E-commerce for collectible 3D-printed characters and mystery boxes.</p><a href="https://toko.mantaray.digital/" target="_blank">View ↗</a></div>
+      </div></div>
+      <div class="geo-border project-frame"><div class="geo-border-inner">
+        <div class="project-img"></div>
+        <div class="project-content"><h3>Studiofy</h3><p>AI product photography SaaS — studio backgrounds in under 60 seconds.</p><a href="https://web-production-5875b.up.railway.app/login" target="_blank">View ↗</a></div>
+      </div></div>
+      <div class="geo-border project-frame"><div class="geo-border-inner">
+        <div class="project-img"></div>
+        <div class="project-content"><h3>MediFlow Booking</h3><p>Patient-facing clinic booking with bilingual EN/AR scheduling.</p><a href="https://mediflow-clinic.netlify.app/en/book/admin-ml9boma0" target="_blank">View ↗</a></div>
+      </div></div>
+      <div class="geo-border project-frame"><div class="geo-border-inner">
+        <div class="project-img"></div>
+        <div class="project-content"><h3>Fresh Cart</h3><p>Online grocery store with React — browsing, checkout, delivery.</p><a href="https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin" target="_blank">View ↗</a></div>
+      </div></div>
+    </div>
+  </section>
+</div>
+<div class="geo-line"></div>
+<footer>© 2025 Ahmed Kholief — All Rights Reserved</footer>
+<div class="fan">△ ▽ △ ▽ △</div>
+</body>
+</html>

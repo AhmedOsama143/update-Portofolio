@@ -1,5 +1,5 @@
-import React from "react";
-import Ahmed from "../../assets/imgs/AhmedKholiefIMG.jpg";
+import React, { useState, useEffect, useCallback } from "react";
+import Ahmed from "../../assets/imgs/AhmedKholiefIMG.webp";
 import linkedinAnimation from "../../assets/jsonIcons/Linkedin Icon.json";
 import GitHubicon from "../../assets/jsonIcons/GitHubicon.json";
 import Gmail from "../../assets/jsonIcons/Gmail.json";
@@ -15,7 +15,52 @@ import {
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 
+const TAGLINES = [
+  "Building Modern Web Applications.",
+  "Crafting Pixel-Perfect UIs.",
+  "Shipping Fast & Accessible Sites.",
+];
+
+function useTypingAnimation(phrases, typingSpeed = 80, deletingSpeed = 40, pauseTime = 1800) {
+  const [displayText, setDisplayText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const tick = useCallback(() => {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (!isDeleting) {
+      // Typing
+      if (displayText.length < currentPhrase.length) {
+        setDisplayText(currentPhrase.slice(0, displayText.length + 1));
+      } else {
+        // Pause before deleting
+        setTimeout(() => setIsDeleting(true), pauseTime);
+        return;
+      }
+    } else {
+      // Deleting
+      if (displayText.length > 0) {
+        setDisplayText(currentPhrase.slice(0, displayText.length - 1));
+      } else {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      }
+    }
+  }, [displayText, phraseIndex, isDeleting, phrases, pauseTime]);
+
+  useEffect(() => {
+    const speed = isDeleting ? deletingSpeed : typingSpeed;
+    const timer = setTimeout(tick, speed);
+    return () => clearTimeout(timer);
+  }, [tick, isDeleting, deletingSpeed, typingSpeed]);
+
+  return displayText;
+}
+
 export default function Portfolio() {
+  const typedText = useTypingAnimation(TAGLINES);
+
   return (
     <section
       id="home"
@@ -54,8 +99,9 @@ export default function Portfolio() {
                 </span>
               </h1>
 
-              <p className="mt-3 text-base md:text-lg text-white/80">
-                Building Modern Web Applications.
+              <p className="mt-3 text-base md:text-lg text-white/80 min-h-[1.75rem]">
+                {typedText}
+                <span className="typing-cursor" />
               </p>
 
               {/* Badges */}
@@ -73,10 +119,11 @@ export default function Portfolio() {
               {/* CTAs */}
               <div className="mt-7 flex flex-col sm:flex-row flex-wrap items-center gap-1">
                 <a
-                  href="#Projects"
-                  className="group relative inline-flex items-center justify-center rounded-full  text-sm font-medium"
+                  href="#projects"
+                  className="group relative inline-flex items-center justify-center rounded-full text-sm font-medium"
                 >
-                  <span className="relative rounded-full  hover:bg-white/10 transition bg-black/60 px-6 py-3 border border-white/20">
+                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-600 to-primary-400 blur-md opacity-60 group-hover:opacity-80 transition" />
+                  <span className="relative rounded-full bg-gradient-to-r from-primary-600 to-primary-400 px-6 py-3 text-white font-semibold shadow-lg hover:shadow-[0_0_24px_rgba(59,130,246,0.6)] transition-all">
                     View Projects
                   </span>
                 </a>
@@ -143,45 +190,6 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Local styles */}
-      <style>{`
-        @keyframes float {
-          0%,100% { transform: translateY(0) translateX(0); }
-          50% { transform: translateY(-12px) translateX(6px); }
-        }
-        .aurora {
-          background:
-            radial-gradient(closest-side, rgba(59,130,246,0.35), transparent 70%),
-            radial-gradient(closest-side, rgba(29,78,216,0.30), transparent 60%);
-          animation: float 8s ease-in-out infinite;
-        }
-        .aurora-2 {
-          background:
-            radial-gradient(closest-side, rgba(29,78,216,0.35), transparent 70%),
-            radial-gradient(closest-side, rgba(59,130,246,0.25), transparent 60%);
-          animation: float 10s ease-in-out infinite reverse;
-        }
-        .stars {
-          background-image:
-            radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.9), transparent 60%),
-            radial-gradient(1.5px 1.5px at 80% 20%, rgba(255,255,255,0.8), transparent 60%),
-            radial-gradient(1.8px 1.8px at 60% 70%, rgba(255,255,255,0.85), transparent 60%),
-            radial-gradient(1.2px 1.2px at 30% 80%, rgba(255,255,255,0.8), transparent 60%),
-            radial-gradient(1.3px 1.3px at 50% 50%, rgba(255,255,255,0.75), transparent 60%);
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .aurora, .aurora-2, .animate-spin-slow { animation: none !important; }
-        }
-      `}</style>
     </section>
   );
 }

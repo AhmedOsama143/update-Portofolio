@@ -1,8 +1,6 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-
 import {
   faBars,
   faCode,
@@ -13,15 +11,46 @@ import {
   faUserCircle,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import useActiveSection from "../../hooks/useActiveSection";
 
-import { useState } from "react";
+const NAV_LINKS = [
+  { href: "#home", icon: faHouse, label: "Home", id: "home" },
+  { href: "#about", icon: faUserCircle, label: "About Me", id: "about" },
+  { href: "#skills", icon: faScrewdriverWrench, label: "Skills", id: "skills" },
+  { href: "#projects", icon: faLaptop, label: "Projects", id: "projects" },
+  { href: "#contact", icon: faPhone, label: "Contact Me", id: "contact" },
+];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen);
+  const [isClosing, setIsClosing] = useState(false);
+  const activeSection = useActiveSection();
+  const timeoutRef = useRef(null);
+
+  function closeMenu() {
+    setIsClosing(true);
+    timeoutRef.current = setTimeout(() => {
+      setIsMenuOpen(false);
+      setIsClosing(false);
+    }, 300);
   }
+
+  function toggleMenu() {
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      setIsMenuOpen(true);
+      setIsClosing(false);
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   return (
     <>
@@ -46,51 +75,24 @@ export default function Navbar() {
             </div>
 
             <ul className="hidden lg:flex items-center pt-2 gap-10 text-white">
-              <li>
-                <a
-                  href="#home"
-                  className="flex flex-col items-center gap-2 hover:text-primary-300 transition-colors"
-                >
-                  <FontAwesomeIcon icon={faHouse} className="" />
-                  <span className="text-sm">Home</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="flex flex-col items-center gap-2 hover:text-primary-300 transition-colors"
-                >
-                  <FontAwesomeIcon icon={faUserCircle} className="" />
-                  <span className="text-sm">About Me</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#skills"
-                  className="flex flex-col items-center gap-2 hover:text-primary-300 transition-colors"
-                >
-                  <FontAwesomeIcon icon={faScrewdriverWrench} className="" />
-                  <span className="text-sm">Skills</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#Projects"
-                  className="flex flex-col items-center gap-2 hover:text-primary-300 transition-colors"
-                >
-                  <FontAwesomeIcon icon={faLaptop} className="" />
-                  <span className="text-sm">Projects</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#ContactMe"
-                  className="flex flex-col items-center gap-2 hover:text-primary-300 transition-colors"
-                >
-                  <FontAwesomeIcon icon={faPhone} className="" />
-                  <span className="text-sm">Contact Me</span>
-                </a>
-              </li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={link.href}
+                    className={`flex flex-col items-center gap-2 transition-colors relative ${
+                      activeSection === link.id
+                        ? "text-primary-300"
+                        : "hover:text-primary-300"
+                    }`}
+                  >
+                    <FontAwesomeIcon icon={link.icon} />
+                    <span className="text-sm">{link.label}</span>
+                    {activeSection === link.id && (
+                      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-1.5 w-1.5 rounded-full bg-primary-400 shadow-[0_0_8px_rgba(96,165,250,0.9)]" />
+                    )}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href="https://github.com/AhmedOsama143"
@@ -128,17 +130,22 @@ export default function Navbar() {
         </div>
 
         {/* OffCanvas */}
-        {isMenuOpen && (
+        {(isMenuOpen || isClosing) && (
           <>
             <div
-              onClick={toggleMenu}
-              className="fixed inset-0 bg-black/50 z-40 cursor-pointer"
+              onClick={closeMenu}
+              className={`fixed inset-0 bg-black/50 z-40 cursor-pointer transition-opacity duration-300 ${
+                isClosing ? "opacity-0" : "opacity-100"
+              }`}
             ></div>
 
             <div
-              className="OffCanvas fixed z-50 bg-white/10 backdrop-blur-lg 
-                text-white top-0 bottom-0 p-5 space-y-5 animate-slide-in 
-                border-r border-white/20 w-64"
+              className={`OffCanvas fixed z-50 bg-white/10 backdrop-blur-lg 
+                text-white top-0 bottom-0 p-5 space-y-5 
+                border-r border-white/20 w-64 ${
+                  isClosing ? "offcanvas-exit" : "offcanvas-active"
+                }`}
+              style={!isClosing ? undefined : undefined}
             >
               <div className="flex items-center justify-between py-5 border-b border-white/20">
                 <div className="flex items-center gap-3">
@@ -153,71 +160,32 @@ export default function Navbar() {
                     <span className="ml-2 w-1 h-1 rounded-full bg-primary-600"></span>
                   </h1>
                 </div>
-                <button onClick={toggleMenu} className="text-white ">
+                <button onClick={closeMenu} className="text-white ">
                   <FontAwesomeIcon icon={faXmark} />
                 </button>
               </div>
 
-              {/* <h2 className="text-xl font-bold text-primary-300">Menu</h2> */}
               <ul className="mt-3 space-y-2">
-                <li>
-                  <a
-                    href="#home"
-                    onClick={toggleMenu}
-                    className="flex gap-2 px-2 py-3 text-white rounded hover:text-primary-300"
-                  >
-                    <FontAwesomeIcon icon={faHouse} className="text-xl" />
-                    <span className="text-sm">Home</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#about"
-                    onClick={toggleMenu}
-                    className="flex gap-2 px-2 py-3 text-white rounded hover:text-primary-300"
-                  >
-                    <FontAwesomeIcon icon={faUserCircle} className="text-2xl" />
-                    <span className="text-sm">About Me</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#skills"
-                    onClick={toggleMenu}
-                    className="flex gap-2 px-2 py-3 text-white rounded hover:text-primary-300"
-                  >
-                    <FontAwesomeIcon
-                      icon={faScrewdriverWrench}
-                      className="text-2xl"
-                    />
-                    <span className="text-sm">Skills</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#Projects"
-                    onClick={toggleMenu}
-                    className="flex gap-2 px-2 py-3 text-white rounded hover:text-primary-300"
-                  >
-                    <FontAwesomeIcon icon={faLaptop} className="text-2xl" />
-                    <span className="text-sm">Projects</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#ContactMe"
-                    onClick={toggleMenu}
-                    className="flex gap-2 px-2 py-3 text-white rounded hover:text-primary-300"
-                  >
-                    <FontAwesomeIcon icon={faPhone} className="text-2xl" />
-                    <span className="text-sm">Contact Me</span>
-                  </a>
-                </li>
+                {NAV_LINKS.map((link) => (
+                  <li key={link.id}>
+                    <a
+                      href={link.href}
+                      onClick={closeMenu}
+                      className={`flex gap-2 px-2 py-3 rounded transition-colors ${
+                        activeSection === link.id
+                          ? "text-primary-300 bg-white/10"
+                          : "text-white hover:text-primary-300"
+                      }`}
+                    >
+                      <FontAwesomeIcon icon={link.icon} className="text-xl" />
+                      <span className="text-sm">{link.label}</span>
+                    </a>
+                  </li>
+                ))}
                 <li>
                   <a
                     href="https://github.com/AhmedOsama143"
-                    onClick={toggleMenu}
+                    onClick={closeMenu}
                     className="flex gap-2 px-2 py-3 text-white rounded hover:text-primary-300"
                   >
                     <FontAwesomeIcon icon={faGithub} className="text-xl" />
@@ -228,7 +196,7 @@ export default function Navbar() {
                   <a
                     href="Ahmed-Kholief-cv.pdf"
                     download="Ahmed-Kholief-cv.pdf"
-                    className="flex flex-col items-start  gap-1 text-white hover:text-primary-300 transition-colors"
+                    className="flex flex-col items-start gap-1 text-white hover:text-primary-300 transition-colors"
                   >
                     <FontAwesomeIcon icon={faDownload} className="text-3xl" />
                     <span className="text-[16px]"> CV</span>

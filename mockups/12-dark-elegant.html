@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kholief — Dark Elegant</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Montserrat",sans-serif;font-weight:300;color:#b8b0a0;background:#1c1c1c;line-height:1.7}
+a{color:#c9a96e;text-decoration:none}
+.container{max-width:1000px;margin:0 auto;padding:0 32px}
+
+/* Gold dividers */
+.gold-line{height:1px;background:linear-gradient(90deg,transparent,#c9a96e,transparent);margin:0}
+.gold-line-solid{height:1px;background:#2a2520;margin:40px 0}
+
+/* Hero */
+.hero{padding:120px 0 80px;text-align:center}
+.hero-label{font-family:"Montserrat",sans-serif;font-size:11px;letter-spacing:8px;text-transform:uppercase;color:#c9a96e;margin-bottom:32px}
+.hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(42px,6vw,72px);font-weight:400;color:#f0ead6;letter-spacing:6px;margin-bottom:12px}
+.hero-tagline{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18px;color:#8a8070;max-width:520px;margin:0 auto 40px}
+.skills-elegant{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.skills-elegant span{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#8a8070}
+.skills-elegant span::after{content:" ·";color:#3a3530}
+.skills-elegant span:last-child::after{display:none}
+.social-elegant{display:flex;gap:32px;justify-content:center}
+.social-elegant a{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#c9a96e;transition:color .3s}
+.social-elegant a:hover{color:#f0ead6}
+
+/* Projects */
+.projects{padding:80px 0}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:400;text-align:center;color:#f0ead6;letter-spacing:4px;margin-bottom:12px}
+.section-sub{text-align:center;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:#5a5040;margin-bottom:56px}
+.project-masonry{columns:2;column-gap:32px}
+.project-item{break-inside:avoid;border:1px solid #2a2520;padding:32px;margin-bottom:32px;transition:border-color .3s}
+.project-item:hover{border-color:#c9a96e}
+.project-item h3{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:500;color:#f0ead6;letter-spacing:2px;margin-bottom:8px}
+.project-item p{font-size:14px;color:#706858;margin-bottom:20px}
+.project-item a{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#c9a96e;padding-bottom:2px;border-bottom:1px solid #3a3530;transition:border-color .3s}
+.project-item a:hover{border-color:#c9a96e}
+/* Stagger heights for masonry feel */
+.project-item:nth-child(1){padding-top:48px}
+.project-item:nth-child(4){padding-top:48px}
+
+/* Small caps utility */
+.sc{font-variant:small-caps;letter-spacing:2px}
+
+/* Footer */
+footer{border-top:1px solid #2a2520;padding:40px 0;text-align:center}
+footer p{font-size:11px;letter-spacing:6px;text-transform:uppercase;color:#3a3530}
+footer .mark{font-family:"Cormorant Garamond",serif;font-size:28px;color:#c9a96e;margin-bottom:12px;letter-spacing:4px}
+
+@media(max-width:768px){
+  .project-masonry{columns:1}
+  .hero{padding:80px 0 48px}
+}
+</style>
+</head>
+<body>
+<div class="gold-line"></div>
+<div class="container">
+  <section class="hero">
+    <p class="hero-label">Frontend Developer</p>
+    <h1>Ahmed Kholief</h1>
+    <p class="hero-tagline">Building Modern Web Applications. Crafting Pixel-Perfect UIs. Shipping Fast &amp; Accessible Sites.</p>
+    <div class="skills-elegant">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+    </div>
+    <div class="social-elegant">
+      <a href="https://github.com/AhmedOsama143" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/ahmedkholief/" target="_blank">LinkedIn</a>
+      <a href="mailto:ahmedkholief143@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <section class="projects">
+    <h2 class="section-title">Portfolio</h2>
+    <p class="section-sub">Selected Works</p>
+    <div class="project-masonry">
+      <div class="project-item">
+        <h3>Signature Stays</h3>
+        <p>Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, and booking search with a modern, elegant design.</p>
+        <a href="https://signaturestays.io/" target="_blank">View Project →</a>
+      </div>
+      <div class="project-item">
+        <h3>Studiio</h3>
+        <p>Studio management SaaS for gyms and fitness centers. Manages classes, schedules, payments, and multi-branch operations with bilingual support.</p>
+        <a href="https://studiio-app.netlify.app/" target="_blank">View Project →</a>
+      </div>
+      <div class="project-item">
+        <h3>Toko Store</h3>
+        <p>E-commerce platform for collectible 3D-printed characters and mystery boxes with Instagram integration.</p>
+        <a href="https://toko.mantaray.digital/" target="_blank">View Project →</a>
+      </div>
+      <div class="project-item">
+        <h3>Studiofy</h3>
+        <p>AI-powered product photography SaaS that transforms product images with professional studio backgrounds in under 60 seconds.</p>
+        <a href="https://web-production-5875b.up.railway.app/login" target="_blank">View Project →</a>
+      </div>
+      <div class="project-item">
+        <h3>MediFlow Booking</h3>
+        <p>Patient-facing booking interface for the clinic management system with bilingual English/Arabic appointment scheduling.</p>
+        <a href="https://mediflow-clinic.netlify.app/en/book/admin-ml9boma0" target="_blank">View Project →</a>
+      </div>
+      <div class="project-item">
+        <h3>Fresh Cart</h3>
+        <p>Online grocery store built with React featuring easy browsing, secure checkout, and quick delivery.</p>
+        <a href="https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin" target="_blank">View Project →</a>
+      </div>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="mark">AK</div>
+  <p>© 2025 Ahmed Kholief — All Rights Reserved</p>
+</footer>
+<div class="gold-line"></div>
+</body>
+</html>

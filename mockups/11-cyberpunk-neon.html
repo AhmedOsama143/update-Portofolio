@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kholief — Cyberpunk Neon</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Share Tech Mono",monospace;color:#e0e0e0;background:#0d0d0d;line-height:1.6;overflow-x:hidden}
+a{color:#00f5ff;text-decoration:none}
+
+/* Scanlines */
+body::after{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.08) 2px,rgba(0,0,0,.08) 4px);pointer-events:none;z-index:9999}
+
+.container{max-width:1060px;margin:0 auto;padding:0 24px}
+
+/* Glitch animation */
+@keyframes glitch{0%,100%{text-shadow:2px 0 #ff006e,-2px 0 #00f5ff}25%{text-shadow:-2px -2px #ff006e,2px 2px #00f5ff}50%{text-shadow:2px 2px #ffff00,-2px -2px #ff006e}75%{text-shadow:-2px 0 #00f5ff,2px 0 #ffff00}}
+@keyframes flicker{0%,100%{opacity:1}50%{opacity:.95}52%{opacity:.6}54%{opacity:1}}
+
+/* HUD corners */
+.hud{position:relative;padding:32px}
+.hud::before,.hud::after{content:"";position:absolute;width:24px;height:24px;border-color:#ff006e;border-style:solid}
+.hud::before{top:0;left:0;border-width:2px 0 0 2px}
+.hud::after{top:0;right:0;border-width:2px 2px 0 0}
+.hud-bottom{position:relative}
+.hud-bottom::before,.hud-bottom::after{content:"";position:absolute;width:24px;height:24px;border-color:#ff006e;border-style:solid}
+.hud-bottom::before{bottom:0;left:0;border-width:0 0 2px 2px}
+.hud-bottom::after{bottom:0;right:0;border-width:0 2px 2px 0}
+
+/* Hero */
+.hero{padding:80px 0 48px;border-bottom:1px solid #1a1a1a}
+.hero-label{font-family:"Orbitron",sans-serif;font-size:11px;letter-spacing:6px;color:#ff006e;text-transform:uppercase;margin-bottom:20px;animation:flicker 3s infinite}
+.hero-label::before{content:"[ ";}.hero-label::after{content:" ]";}
+.hero h1{font-family:"Orbitron",sans-serif;font-size:clamp(36px,7vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:4px;animation:glitch 3s infinite;color:#fff;margin-bottom:12px}
+.hero-tagline{font-size:15px;color:#00f5ff;max-width:560px;margin-bottom:32px;text-shadow:0 0 10px rgba(0,245,255,0.3)}
+.skills-cyber{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.skills-cyber span{font-family:"Orbitron",sans-serif;font-size:11px;padding:6px 16px;border:1px solid #00f5ff;color:#00f5ff;letter-spacing:2px;text-shadow:0 0 8px rgba(0,245,255,0.4);box-shadow:0 0 8px rgba(0,245,255,0.1);position:relative}
+.skills-cyber span::before{content:">";position:absolute;left:6px;color:#ff006e}
+.skills-cyber span{padding-left:22px}
+.social-cyber{display:flex;gap:16px}
+.social-cyber a{font-family:"Orbitron",sans-serif;font-size:11px;letter-spacing:3px;padding:8px 20px;border:1px solid #ffff00;color:#ffff00;text-shadow:0 0 8px rgba(255,255,0,0.3);transition:all .3s;text-transform:uppercase}
+.social-cyber a:hover{background:#ffff00;color:#0d0d0d;box-shadow:0 0 20px rgba(255,255,0,0.4)}
+
+/* Neon divider */
+.neon-divider{height:1px;background:linear-gradient(90deg,transparent,#ff006e,#00f5ff,#ffff00,transparent);margin:40px 0;box-shadow:0 0 10px rgba(255,0,110,0.3)}
+
+/* Projects */
+.projects{padding:48px 0 80px}
+.section-title{font-family:"Orbitron",sans-serif;font-size:18px;letter-spacing:6px;text-transform:uppercase;color:#ff006e;margin-bottom:40px;text-shadow:0 0 15px rgba(255,0,110,0.3)}
+.section-title::before{content:"// ";}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.project-panel{border:1px solid #1a2a2a;background:#0a0a0a;padding:0;position:relative;transition:all .3s}
+.project-panel:hover{border-color:#00f5ff;box-shadow:0 0 20px rgba(0,245,255,0.1)}
+.panel-header{padding:12px 16px;border-bottom:1px solid #1a2a2a;display:flex;justify-content:space-between;align-items:center}
+.panel-header h3{font-family:"Orbitron",sans-serif;font-size:13px;color:#00f5ff;letter-spacing:2px}
+.panel-header .status{font-size:10px;color:#ff006e;letter-spacing:2px}
+.panel-header .status::before{content:"● ";color:#00ff41}
+.panel-body{padding:16px}
+.panel-body p{font-size:13px;color:#666;margin-bottom:16px}
+.panel-body a{font-family:"Orbitron",sans-serif;font-size:10px;letter-spacing:3px;color:#ffff00;border:1px solid #ffff00;padding:6px 16px;display:inline-block;text-transform:uppercase;transition:all .3s}
+.panel-body a:hover{background:#ffff00;color:#0d0d0d}
+
+/* Footer */
+footer{border-top:1px solid #1a1a1a;padding:32px 0;text-align:center;font-size:12px;color:#333;letter-spacing:3px}
+
+@media(max-width:640px){
+  .hero{padding:60px 0 32px}
+  .project-grid{grid-template-columns:1fr}
+  .hud{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero hud hud-bottom">
+    <p class="hero-label">Frontend Developer</p>
+    <h1>Ahmed Kholief</h1>
+    <p class="hero-tagline">&gt; Building Modern Web Applications_<br>&gt; Crafting Pixel-Perfect UIs_<br>&gt; Shipping Fast &amp; Accessible Sites_</p>
+    <div class="skills-cyber">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+    </div>
+    <div class="social-cyber">
+      <a href="https://github.com/AhmedOsama143" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/ahmedkholief/" target="_blank">LinkedIn</a>
+      <a href="mailto:ahmedkholief143@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <div class="neon-divider"></div>
+
+  <section class="projects">
+    <h2 class="section-title">Data Panels — Projects</h2>
+    <div class="project-grid">
+      <div class="project-panel"><div class="panel-header"><h3>Signature Stays</h3><span class="status">LIVE</span></div><div class="panel-body"><p>Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, and booking search.</p><a href="https://signaturestays.io/" target="_blank">Access ↗</a></div></div>
+      <div class="project-panel"><div class="panel-header"><h3>Studiio</h3><span class="status">LIVE</span></div><div class="panel-body"><p>Studio management SaaS for gyms and fitness centers with bilingual English/Arabic support.</p><a href="https://studiio-app.netlify.app/" target="_blank">Access ↗</a></div></div>
+      <div class="project-panel"><div class="panel-header"><h3>Toko Store</h3><span class="status">LIVE</span></div><div class="panel-body"><p>E-commerce platform for collectible 3D-printed characters and mystery boxes.</p><a href="https://toko.mantaray.digital/" target="_blank">Access ↗</a></div></div>
+      <div class="project-panel"><div class="panel-header"><h3>Studiofy</h3><span class="status">LIVE</span></div><div class="panel-body"><p>AI-powered product photography SaaS — studio backgrounds in under 60 seconds.</p><a href="https://web-production-5875b.up.railway.app/login" target="_blank">Access ↗</a></div></div>
+      <div class="project-panel"><div class="panel-header"><h3>MediFlow Booking</h3><span class="status">LIVE</span></div><div class="panel-body"><p>Patient-facing clinic booking with bilingual EN/AR scheduling.</p><a href="https://mediflow-clinic.netlify.app/en/book/admin-ml9boma0" target="_blank">Access ↗</a></div></div>
+      <div class="project-panel"><div class="panel-header"><h3>Fresh Cart</h3><span class="status">LIVE</span></div><div class="panel-body"><p>Online grocery store with React — browsing, checkout, delivery.</p><a href="https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin" target="_blank">Access ↗</a></div></div>
+    </div>
+  </section>
+</div>
+<footer>© 2025 Ahmed Kholief // All Rights Reserved</footer>
+</body>
+</html>

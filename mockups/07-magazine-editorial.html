@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kholief — Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"DM Sans",sans-serif;color:#1a1a1a;background:#fff;line-height:1.6}
+a{color:#c0392b;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 32px}
+
+/* Hero */
+.hero{padding:80px 0 48px;border-bottom:3px solid #1a1a1a}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px}
+.hero-issue{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#999}
+.hero-date{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#999}
+.hero h1{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(48px,8vw,88px);line-height:0.95;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:#c0392b}
+.hero-sub{display:flex;gap:48px;align-items:flex-start;border-top:1px solid #ddd;padding-top:24px}
+.hero-bio{flex:1;font-size:15px;color:#444;max-width:500px}
+.hero-bio .dropcap{float:left;font-family:"DM Serif Display",serif;font-size:64px;line-height:48px;padding-right:8px;color:#c0392b}
+.hero-links{display:flex;flex-direction:column;gap:8px;font-size:13px;min-width:120px}
+.hero-links a{border-bottom:1px solid #ddd;padding-bottom:4px}
+.skills-ed{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.skills-ed span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#999;padding:4px 12px;border:1px solid #ddd}
+
+/* Projects */
+.projects{padding:48px 0 80px}
+.projects-header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1a1a1a;padding-bottom:12px;margin-bottom:32px}
+.projects-header h2{font-family:"DM Serif Display",serif;font-size:36px}
+.projects-header span{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#999}
+.project-cols{column-count:2;column-gap:48px}
+.project-entry{break-inside:avoid;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #eee}
+.project-entry h3{font-family:"DM Serif Display",serif;font-size:22px;margin-bottom:6px}
+.project-entry p{font-size:14px;color:#555;margin-bottom:8px}
+.project-entry a{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#c0392b;font-weight:700}
+
+/* Footer */
+footer{border-top:3px solid #1a1a1a;padding:24px 0;display:flex;justify-content:space-between;font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase}
+
+@media(max-width:768px){
+  .project-cols{column-count:1}
+  .hero-sub{flex-direction:column;gap:24px}
+  .hero-top{flex-direction:column;gap:8px}
+  footer{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero">
+    <div class="hero-top">
+      <span class="hero-issue">Portfolio — Issue No. 1</span>
+      <span class="hero-date">Est. 2025</span>
+    </div>
+    <h1>Ahmed<br><em>Kholief</em></h1>
+    <div class="hero-sub">
+      <div class="hero-bio">
+        <span class="dropcap">B</span>uilding Modern Web Applications, Crafting Pixel-Perfect UIs, and Shipping Fast &amp; Accessible Sites. A frontend developer focused on speed, accessibility, and clean user experiences.
+        <div class="skills-ed">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+        </div>
+      </div>
+      <div class="hero-links">
+        <a href="https://github.com/AhmedOsama143" target="_blank">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/ahmedkholief/" target="_blank">LinkedIn ↗</a>
+        <a href="mailto:ahmedkholief143@gmail.com">Email ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="projects-header">
+      <h2>Selected Works</h2>
+      <span>6 Projects</span>
+    </div>
+    <div class="project-cols">
+      <div class="project-entry"><h3>Signature Stays</h3><p>Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, and booking search.</p><a href="https://signaturestays.io/" target="_blank">View Project ↗</a></div>
+      <div class="project-entry"><h3>Studiio</h3><p>Studio management SaaS for gyms and fitness centers with bilingual English/Arabic support.</p><a href="https://studiio-app.netlify.app/" target="_blank">View Project ↗</a></div>
+      <div class="project-entry"><h3>Toko Store</h3><p>E-commerce platform for collectible 3D-printed characters and mystery boxes.</p><a href="https://toko.mantaray.digital/" target="_blank">View Project ↗</a></div>
+      <div class="project-entry"><h3>Studiofy</h3><p>AI-powered product photography SaaS that transforms images with studio backgrounds in under 60 seconds.</p><a href="https://web-production-5875b.up.railway.app/login" target="_blank">View Project ↗</a></div>
+      <div class="project-entry"><h3>MediFlow Booking</h3><p>Patient-facing booking interface for clinics with bilingual English/Arabic appointment scheduling.</p><a href="https://mediflow-clinic.netlify.app/en/book/admin-ml9boma0" target="_blank">View Project ↗</a></div>
+      <div class="project-entry"><h3>Fresh Cart</h3><p>Online grocery store with React featuring easy browsing, secure checkout, and quick delivery.</p><a href="https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin" target="_blank">View Project ↗</a></div>
+    </div>
+  </section>
+</div>
+<footer class="container">
+  <span>© 2025 Ahmed Kholief</span>
+  <span>All Rights Reserved</span>
+</footer>
+</body>
+</html>

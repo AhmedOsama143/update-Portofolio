@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kholief — Minimalist Light</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#222;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{padding:120px 0 80px;border-bottom:1px solid #eee}
+.hero-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8a9bb0;margin-bottom:16px}
+.hero h1{font-size:48px;font-weight:300;letter-spacing:-1px;color:#111;margin-bottom:12px}
+.hero h1 strong{font-weight:600}
+.hero-tagline{font-size:18px;color:#667;max-width:480px;margin-bottom:32px}
+.skills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.skills span{font-size:12px;padding:4px 12px;border:1px solid #ddd;color:#555}
+.social-links{display:flex;gap:20px}
+.social-links a{font-size:13px;color:#8a9bb0;border-bottom:1px solid transparent;transition:border-color .2s}
+.social-links a:hover{border-bottom-color:#8a9bb0}
+
+/* Projects */
+.projects{padding:80px 0}
+.section-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8a9bb0;margin-bottom:48px}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px}
+.project-card{border:1px solid #eee;padding:0}
+.project-img{width:100%;height:200px;background:#f5f5f5}
+.project-body{padding:24px}
+.project-body h3{font-size:18px;font-weight:500;margin-bottom:8px}
+.project-body p{font-size:14px;color:#667;margin-bottom:16px;line-height:1.5}
+.project-link{font-size:12px;color:#8a9bb0;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #ddd;padding-bottom:2px}
+
+/* Footer */
+footer{padding:48px 0;border-top:1px solid #eee;text-align:center;font-size:13px;color:#999}
+
+@media(max-width:640px){
+  .hero h1{font-size:32px}
+  .project-grid{grid-template-columns:1fr}
+  .hero{padding:80px 0 48px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero">
+    <p class="hero-label">Frontend Developer</p>
+    <h1><strong>Ahmed</strong> Kholief</h1>
+    <p class="hero-tagline">Building Modern Web Applications. Crafting Pixel-Perfect UIs. Shipping Fast &amp; Accessible Sites.</p>
+    <div class="skills">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/AhmedOsama143" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/ahmedkholief/" target="_blank">LinkedIn</a>
+      <a href="mailto:ahmedkholief143@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <section class="projects">
+    <p class="section-title">Selected Projects</p>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-img"></div>
+        <div class="project-body">
+          <h3>Signature Stays</h3>
+          <p>Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, and booking search.</p>
+          <a class="project-link" href="https://signaturestays.io/" target="_blank">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img"></div>
+        <div class="project-body">
+          <h3>Studiio</h3>
+          <p>Studio management SaaS for gyms and fitness centers with bilingual English/Arabic support.</p>
+          <a class="project-link" href="https://studiio-app.netlify.app/" target="_blank">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img"></div>
+        <div class="project-body">
+          <h3>Toko Store</h3>
+          <p>E-commerce platform for collectible 3D-printed characters and mystery boxes.</p>
+          <a class="project-link" href="https://toko.mantaray.digital/" target="_blank">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img"></div>
+        <div class="project-body">
+          <h3>Studiofy</h3>
+          <p>AI-powered product photography SaaS that transforms images with studio backgrounds in under 60 seconds.</p>
+          <a class="project-link" href="https://web-production-5875b.up.railway.app/login" target="_blank">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img"></div>
+        <div class="project-body">
+          <h3>MediFlow Booking</h3>
+          <p>Patient-facing booking interface for clinics with bilingual English/Arabic appointment scheduling.</p>
+          <a class="project-link" href="https://mediflow-clinic.netlify.app/en/book/admin-ml9boma0" target="_blank">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img"></div>
+        <div class="project-body">
+          <h3>Fresh Cart</h3>
+          <p>Online grocery store with React featuring easy browsing, secure checkout, and quick delivery.</p>
+          <a class="project-link" href="https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin" target="_blank">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<footer><div class="container">© 2025 Ahmed Kholief. All rights reserved.</div></footer>
+</body>
+</html>
