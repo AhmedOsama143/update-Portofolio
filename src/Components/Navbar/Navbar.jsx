@@ -141,8 +141,8 @@ export default function Navbar() {
 
             <div
               className={`OffCanvas fixed z-50 bg-white/10 backdrop-blur-lg 
-                text-white top-0 bottom-0 p-5 space-y-5 
-                border-r border-white/20 w-64 ${
+                text-white top-0 bottom-0 right-0 p-5 space-y-5 
+                border-l border-white/20 w-64 ${
                   isClosing ? "offcanvas-exit" : "offcanvas-active"
                 }`}
               style={!isClosing ? undefined : undefined}

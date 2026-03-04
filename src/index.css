@@ -178,14 +178,14 @@ html {
 
 /* ── Mobile menu slide transition ── */
 .offcanvas-enter {
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }
 .offcanvas-active {
   transform: translateX(0);
   transition: transform 400ms ease-out;
 }
 .offcanvas-exit {
-  transform: translateX(-100%);
+  transform: translateX(100%);
   transition: transform 300ms ease-in;
 }
 
