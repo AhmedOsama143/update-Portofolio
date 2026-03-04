@@ -34,7 +34,7 @@ function App() {
       },
     ],
     {
-      basename: "/update-Portofolio",
+ basename: "/",
     }
   );
 
