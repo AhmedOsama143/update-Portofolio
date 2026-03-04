@@ -117,7 +117,7 @@ export default function Portfolio() {
               </div>
 
               {/* CTAs */}
-              <div className="mt-7 flex flex-col sm:flex-row flex-wrap items-center gap-1">
+              <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:gap-1">
                 <a
                   href="#projects"
                   className="group relative inline-flex items-center justify-center rounded-full text-sm font-medium"
@@ -131,7 +131,7 @@ export default function Portfolio() {
                 <a
                   href="Ahmed-Kholief-cv.pdf"
                   download="Ahmed-Kholief-cv.pdf"
-                  className="group relative inline-flex items-center justify-center rounded-full ms-4 text-sm font-medium"
+                  className="group relative inline-flex items-center justify-center rounded-full sm:ms-4 text-sm font-medium"
                 >
                   <span className="relative rounded-full bg-black/60 px-5 py-2.5 hover:bg-white/10 transition border border-white/20">
                     Download CV
