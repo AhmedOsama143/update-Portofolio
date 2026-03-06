@@ -1,13 +1,17 @@
+import { useLanguage } from "../../context/LanguageContext";
+
 /**
  * SEO component using React 19's built-in <title> and <meta> hoisting.
  * React 19 automatically hoists these tags to <head>.
  */
 export default function SEO({
-  title = "Ahmed Kholief - Frontend Developer",
-  description = "Frontend Developer specializing in React, Next.js, and modern web technologies. Building fast, accessible, and pixel-perfect interfaces.",
   url = "https://ahmedosama143.github.io/update-Portofolio/",
   image = "https://ahmedosama143.github.io/update-Portofolio/fav2.png",
 }) {
+  const { t } = useLanguage();
+  const title = t.seo.title;
+  const description = t.seo.description;
+
   return (
     <>
       <title>{title}</title>

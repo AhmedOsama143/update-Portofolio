@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+/* ── Class-based dark mode for Tailwind v4 ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Theme CSS variables ── */
+:root {
+  --theme-surface: #ffffff;
+  --theme-surface-dim: #f8fafc;
+  --theme-surface-card: #f1f5f9;
+  --theme-surface-elevated: #e2e8f0;
+  --theme-surface-glass: rgba(255, 255, 255, 0.75);
+  --theme-surface-input: #f1f5f9;
+  --theme-surface-overlay: rgba(0, 0, 0, 0.4);
+
+  --theme-heading: #0f172a;
+  --theme-body: #334155;
+  --theme-muted: #64748b;
+  --theme-faint: #94a3b8;
+
+  --theme-stroke: #e2e8f0;
+  --theme-stroke-strong: #cbd5e1;
+}
+
+.dark {
+  --theme-surface: #000000;
+  --theme-surface-dim: #0a0a0a;
+  --theme-surface-card: rgba(255, 255, 255, 0.05);
+  --theme-surface-elevated: rgba(255, 255, 255, 0.1);
+  --theme-surface-glass: rgba(255, 255, 255, 0.1);
+  --theme-surface-input: rgba(0, 0, 0, 0.4);
+  --theme-surface-overlay: rgba(0, 0, 0, 0.5);
+
+  --theme-heading: #ffffff;
+  --theme-body: rgba(255, 255, 255, 0.8);
+  --theme-muted: rgba(255, 255, 255, 0.6);
+  --theme-faint: rgba(255, 255, 255, 0.4);
+
+  --theme-stroke: rgba(255, 255, 255, 0.1);
+  --theme-stroke-strong: rgba(255, 255, 255, 0.2);
+}
+
 body {
   overflow-x: hidden;
 }
@@ -20,6 +60,23 @@ html {
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
 
+  /* Semantic theme tokens */
+  --color-surface: var(--theme-surface);
+  --color-surface-dim: var(--theme-surface-dim);
+  --color-surface-card: var(--theme-surface-card);
+  --color-surface-elevated: var(--theme-surface-elevated);
+  --color-surface-glass: var(--theme-surface-glass);
+  --color-surface-input: var(--theme-surface-input);
+  --color-surface-overlay: var(--theme-surface-overlay);
+
+  --color-heading: var(--theme-heading);
+  --color-body: var(--theme-body);
+  --color-muted: var(--theme-muted);
+  --color-faint: var(--theme-faint);
+
+  --color-stroke: var(--theme-stroke);
+  --color-stroke-strong: var(--theme-stroke-strong);
+
   --font-poppins: "Poppins", sans-serif;
   --container-sm: 540px;
   --container-md: 720px;
@@ -39,7 +96,7 @@ html {
 
 @layer base {
   body {
-    @apply font-poppins;
+    @apply font-poppins bg-surface text-body transition-colors duration-300;
   }
 
   span,
@@ -54,7 +111,7 @@ html {
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-md bg-gray-200 text-gray-900 hover:bg-gray-300 cursor-pointer transition-colors duration-200;
+    @apply px-4 py-2 rounded-md bg-surface-elevated text-heading cursor-pointer transition-colors duration-200;
   }
 }
 
@@ -165,7 +222,7 @@ html {
   width: 2px;
   height: 1em;
   background: currentColor;
-  margin-left: 2px;
+  margin-inline-start: 2px;
   vertical-align: text-bottom;
   animation: blink 0.8s step-end infinite;
 }
@@ -180,6 +237,9 @@ html {
 .offcanvas-enter {
   transform: translateX(100%);
 }
+[dir="rtl"] .offcanvas-enter {
+  transform: translateX(-100%);
+}
 .offcanvas-active {
   transform: translateX(0);
   transition: transform 400ms ease-out;
@@ -188,11 +248,15 @@ html {
   transform: translateX(100%);
   transition: transform 300ms ease-in;
 }
+[dir="rtl"] .offcanvas-exit {
+  transform: translateX(-100%);
+  transition: transform 300ms ease-in;
+}
 
 /* ── Section divider ── */
 .section-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(59,130,246,0.3), transparent);
+  background: linear-gradient(to right, transparent, var(--theme-stroke), transparent);
 }
 
 /* ── Back to top progress ring ── */

@@ -13,11 +13,13 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 
 const RING_RADIUS = 18;
 const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
 
 export default function Footer() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -43,33 +45,28 @@ export default function Footer() {
   const strokeDashoffset = RING_CIRCUMFERENCE * (1 - scrollProgress);
 
   return (
-    <footer
-      id="Footer"
-      className="relative  overflow-hidden bg-black text-white py-4"
-    >
+    <footer id="Footer" className="relative overflow-hidden bg-surface text-heading py-4">
       <div
-        className="pointer-events-none absolute inset-0 opacity-10"
+        className="pointer-events-none absolute inset-0 opacity-5 dark:opacity-10"
         style={{
           backgroundImage: `
             radial-gradient(circle at 50% 50%, rgba(59,130,246,0.18), transparent 45%),
-            linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
+            linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)
           `,
           backgroundSize: "100% 100%, 60px 60px, 60px 60px",
         }}
       />
       <div
-        className="pointer-events-none absolute -top-24 -left-24 hidden md:block h-80 w-80 rounded-full blur-3xl opacity-25"
+        className="pointer-events-none absolute -top-24 -left-24 hidden md:block h-80 w-80 rounded-full blur-3xl opacity-5 dark:opacity-25"
         style={{
-          background:
-            "radial-gradient(closest-side, rgba(29,78,216,0.35), transparent 70%)",
+          background: "radial-gradient(closest-side, rgba(29,78,216,0.35), transparent 70%)",
         }}
       />
       <div
-        className="pointer-events-none absolute -bottom-24 -right-24 hidden md:block h-[26rem] w-[26rem] rounded-full blur-3xl opacity-25"
+        className="pointer-events-none absolute -bottom-24 -right-24 hidden md:block h-[26rem] w-[26rem] rounded-full blur-3xl opacity-5 dark:opacity-25"
         style={{
-          background:
-            "radial-gradient(closest-side, rgba(59,130,246,0.28), transparent 70%)",
+          background: "radial-gradient(closest-side, rgba(59,130,246,0.28), transparent 70%)",
         }}
       />
 
@@ -77,28 +74,27 @@ export default function Footer() {
         {/* Top grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-10">
           {/* About */}
-          <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md hover:scale-105 transition-transform duration-300">
-            <h2 className="font-extrabold text-2xl bg-gradient-to-r from-primary-300 via-primary-200 to-primary-50 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(59,130,246,0.25)]">
-              Ahmed Kholief
+          <div className="space-y-3 rounded-2xl border border-stroke bg-surface-card p-5 backdrop-blur-md hover:scale-105 transition-transform duration-300">
+            <h2 className="font-extrabold text-2xl bg-gradient-to-r from-primary-700 via-primary-600 to-primary-500 dark:from-primary-300 dark:via-primary-200 dark:to-primary-50 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(59,130,246,0.25)]">
+              {t.footer.name}
             </h2>
-            <p className="text-white/70">
-              Frontend Developer — I build fast, accessible, and scalable web
-              UIs. Let's craft delightful user experiences.
-            </p>
+            <p className="text-muted">{t.footer.tagline}</p>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md hover:scale-105 transition-transform duration-300">
-            <h3 className="font-bold text-xl text-primary-200">Quick Links</h3>
+          <div className="space-y-3 rounded-2xl border border-stroke bg-surface-card p-5 backdrop-blur-md hover:scale-105 transition-transform duration-300">
+            <h3 className="font-bold text-xl text-primary-700 dark:text-primary-200">
+              {t.footer.quickLinksTitle}
+            </h3>
             <ul className="space-y-3">
               {[
-                { href: "#about", label: "About" },
-                { href: "#skills", label: "Skills" },
-                { href: "#projects", label: "Projects" },
-                { href: "#contact", label: "Contact" },
+                { href: "#about", label: t.footer.quickLinks.about },
+                { href: "#skills", label: t.footer.quickLinks.skills },
+                { href: "#projects", label: t.footer.quickLinks.projects },
+                { href: "#contact", label: t.footer.quickLinks.contact },
                 {
                   href: "Ahmed-Kholief-cv.pdf",
-                  label: "Download CV",
+                  label: t.footer.quickLinks.downloadCV,
                   external: true,
                   download: true,
                 },
@@ -107,13 +103,9 @@ export default function Footer() {
                   <a
                     href={l.href}
                     {...(l.external
-                      ? {
-                          target: "_blank",
-                          rel: "noreferrer",
-                          download: l.download,
-                        }
+                      ? { target: "_blank", rel: "noreferrer", download: l.download }
                       : {})}
-                    className="text-white/80 hover:text-primary-200 transition-colors"
+                    className="text-body hover:text-primary-600 dark:hover:text-primary-200 transition-colors"
                   >
                     {l.label}
                   </a>
@@ -123,15 +115,15 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="space-y-3 rounded-2xl border hover:scale-105 transition-transform duration-300 border-white/10 bg-white/5 p-4 md:p-5 backdrop-blur-md">
-            <h3 className="font-bold text-lg md:text-xl text-primary-200">
-              Contact
+          <div className="space-y-3 rounded-2xl border hover:scale-105 transition-transform duration-300 border-stroke bg-surface-card p-4 md:p-5 backdrop-blur-md">
+            <h3 className="font-bold text-lg md:text-xl text-primary-700 dark:text-primary-200">
+              {t.footer.contactTitle}
             </h3>
 
             <ul className="space-y-2.5 md:space-y-3">
               {/* Email */}
-              <li className="min-w-0 flex items-center gap-3 text-white/80 hover:text-primary-200 transition-colors">
-                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/10 bg-black/40">
+              <li className="min-w-0 flex items-center gap-3 text-body hover:text-primary-600 dark:hover:text-primary-200 transition-colors">
+                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-stroke bg-surface">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </span>
                 <a
@@ -144,8 +136,8 @@ export default function Footer() {
               </li>
 
               {/* Phone */}
-              <li className="min-w-0 flex items-center gap-3 text-white/80 hover:text-primary-200 transition-colors">
-                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/10 bg-black/40">
+              <li className="min-w-0 flex items-center gap-3 text-body hover:text-primary-600 dark:hover:text-primary-200 transition-colors">
+                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-stroke bg-surface">
                   <FontAwesomeIcon icon={faPhone} />
                 </span>
                 <a
@@ -160,47 +152,29 @@ export default function Footer() {
               </li>
 
               {/* Location */}
-              <li className="min-w-0 flex items-center gap-3 text-white/80 hover:text-primary-200 transition-colors">
-                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/10 bg-black/40">
+              <li className="min-w-0 flex items-center gap-3 text-body hover:text-primary-600 dark:hover:text-primary-200 transition-colors">
+                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-stroke bg-surface">
                   <FontAwesomeIcon icon={faLocationDot} />
                 </span>
                 <span className="flex-1 min-w-0 break-words leading-5">
-                  Alexandria, Egypt
+                  {t.contact.locationValue}
                 </span>
               </li>
             </ul>
           </div>
 
           {/* Follow */}
-          <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md hover:scale-105 transition-transform duration-300">
-            <h3 className="font-bold text-xl text-primary-200">Follow</h3>
+          <div className="space-y-3 rounded-2xl border border-stroke bg-surface-card p-5 backdrop-blur-md hover:scale-105 transition-transform duration-300">
+            <h3 className="font-bold text-xl text-primary-700 dark:text-primary-200">
+              {t.footer.followTitle}
+            </h3>
             <ul className="flex flex-wrap gap-3">
               {[
-                {
-                  href: "https://github.com/AhmedOsama143",
-                  icon: faGithub,
-                  label: "GitHub",
-                },
-                {
-                  href: "https://www.linkedin.com/in/ahmedkholief/",
-                  icon: faLinkedin,
-                  label: "LinkedIn",
-                },
-                {
-                  href: "https://x.com/AhmedOs66268732",
-                  icon: faXTwitter,
-                  label: "Twitter",
-                },
-                {
-                  href: "https://www.instagram.com/aahmedosamaa/",
-                  icon: faInstagram,
-                  label: "Instagram",
-                },
-                {
-                  href: "https://www.facebook.com/ahmed.osama.kholief",
-                  icon: faFacebookF,
-                  label: "Facebook",
-                },
+                { href: "https://github.com/AhmedOsama143", icon: faGithub, label: "GitHub" },
+                { href: "https://www.linkedin.com/in/ahmedkholief/", icon: faLinkedin, label: "LinkedIn" },
+                { href: "https://x.com/AhmedOs66268732", icon: faXTwitter, label: "Twitter" },
+                { href: "https://www.instagram.com/aahmedosamaa/", icon: faInstagram, label: "Instagram" },
+                { href: "https://www.facebook.com/ahmed.osama.kholief", icon: faFacebookF, label: "Facebook" },
               ].map((s) => (
                 <li key={s.label}>
                   <a
@@ -208,8 +182,8 @@ export default function Footer() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={s.label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/80
-                               hover:text-primary-50 hover:border-primary-400/40 hover:shadow-[0_0_18px_rgba(59,130,246,0.45)]
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-body
+                               hover:text-primary-600 dark:hover:text-primary-50 hover:border-primary-400/40 hover:shadow-[0_0_18px_rgba(59,130,246,0.45)]
                                transition-all"
                   >
                     <FontAwesomeIcon icon={s.icon} />
@@ -221,10 +195,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-2 flex flex-col gap-3 sm:flex-row items-center justify-between pt-4 border-t border-white/10">
-          <p className="text-white/70 text-sm text-center sm:text-left">
-            &copy; {new Date().getFullYear()} <strong>Ahmed Kholief</strong>.
-            All rights reserved.
+        <div className="mt-2 flex flex-col gap-3 sm:flex-row items-center justify-between pt-4 border-t border-stroke">
+          <p className="text-muted text-sm text-center sm:text-start">
+            &copy; {new Date().getFullYear()} <strong>{t.footer.name}</strong>.{" "}
+            {t.footer.copyright}
           </p>
         </div>
       </div>
@@ -233,26 +207,20 @@ export default function Footer() {
       {isVisible && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-[60] group"
+          aria-label={t.footer.backToTop}
+          className="fixed bottom-6 end-6 z-[60] group"
         >
           <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-primary-500 to-primary-400 blur-[14px] opacity-60 group-hover:opacity-80 transition" />
           <span className="relative inline-flex items-center justify-center h-12 w-12">
-            {/* SVG progress ring */}
-            <svg
-              className="absolute inset-0 h-full w-full"
-              viewBox="0 0 44 44"
-            >
-              {/* Track circle */}
+            <svg className="absolute inset-0 h-full w-full" viewBox="0 0 44 44">
               <circle
                 cx="22"
                 cy="22"
                 r={RING_RADIUS}
                 fill="none"
-                stroke="rgba(255,255,255,0.15)"
+                stroke="rgba(148,163,184,0.25)"
                 strokeWidth="3"
               />
-              {/* Progress circle */}
               <circle
                 cx="22"
                 cy="22"
@@ -272,7 +240,6 @@ export default function Footer() {
                 </linearGradient>
               </defs>
             </svg>
-            {/* Arrow icon */}
             <span className="relative inline-flex items-center justify-center rounded-full bg-primary-600 hover:bg-primary-700 text-white h-9 w-9 shadow-lg transition">
               <FontAwesomeIcon icon={faArrowUp} />
             </span>

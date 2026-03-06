@@ -2,8 +2,10 @@ import React, { useRef, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function Card({ title, img, liveDemo, repo, description, tags }) {
+  const { t } = useLanguage();
   const cardRef = useRef(null);
   const prefersReducedMotion = useRef(
     typeof window !== "undefined" &&
@@ -35,11 +37,11 @@ export default function Card({ title, img, liveDemo, repo, description, tags }) 
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group relative flex flex-col h-full rounded-2xl border border-white/10 
-                 bg-white/5 backdrop-blur-md overflow-hidden 
-                 shadow-[0_0_24px_rgba(59,130,246,0.08)] 
-                 transition-all duration-300 hover:-translate-y-0.5 
-                 hover:shadow-[0_0_34px_rgba(59,130,246,0.18)]"
+      className="group relative flex flex-col h-full rounded-2xl border border-stroke
+                 bg-surface-card backdrop-blur-md overflow-hidden
+                 shadow-sm dark:shadow-[0_0_24px_rgba(59,130,246,0.08)]
+                 transition-all duration-300 hover:-translate-y-0.5
+                 hover:shadow-md dark:hover:shadow-[0_0_34px_rgba(59,130,246,0.18)]"
       style={{ transition: "transform 0.15s ease-out, box-shadow 0.3s, translate 0.3s" }}
     >
       <div className="relative overflow-hidden">
@@ -53,8 +55,8 @@ export default function Card({ title, img, liveDemo, repo, description, tags }) 
       </div>
 
       <div className="flex flex-col flex-1 p-5">
-        <h3 className="text-lg md:text-xl font-semibold text-white">{title}</h3>
-        <p className="mt-2 text-sm text-white/70 line-clamp-3">{description}</p>
+        <h3 className="text-lg md:text-xl font-semibold text-heading">{title}</h3>
+        <p className="mt-2 text-sm text-body line-clamp-3">{description}</p>
 
         {/* Tech Tags */}
         {tags && tags.length > 0 && (
@@ -62,7 +64,7 @@ export default function Card({ title, img, liveDemo, repo, description, tags }) 
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-primary-500/15 border border-primary-400/20 px-2.5 py-0.5 text-[11px] font-medium text-primary-200"
+                className="rounded-full bg-primary-500/15 border border-primary-400/20 px-2.5 py-0.5 text-[11px] font-medium text-primary-700 dark:text-primary-200"
               >
                 {tag}
               </span>
@@ -76,18 +78,18 @@ export default function Card({ title, img, liveDemo, repo, description, tags }) 
               href={repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-primary-200 hover:text-primary-50 transition-colors duration-300"
+              className="flex items-center gap-2 text-primary-600 dark:text-primary-200 hover:text-primary-800 dark:hover:text-primary-50 transition-colors duration-300"
             >
-              <FontAwesomeIcon icon={faGithub} size="lg" /> GitHub
+              <FontAwesomeIcon icon={faGithub} size="lg" /> {t.projects.github}
             </a>
           )}
           <a
             href={liveDemo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-primary-400 hover:text-primary-200 transition-colors duration-300"
+            className="flex items-center gap-2 text-primary-500 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-200 transition-colors duration-300"
           >
-            <FontAwesomeIcon icon={faExternalLinkAlt} size="lg" /> Live Demo
+            <FontAwesomeIcon icon={faExternalLinkAlt} size="lg" /> {t.projects.liveDemo}
           </a>
         </div>
       </div>

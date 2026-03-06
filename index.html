@@ -20,6 +20,22 @@
   <meta name="twitter:title" content="Ahmed Kholief - Frontend Developer" />
   <meta name="twitter:description" content="Designing and developing professional, fast, and modern user interfaces." />
   <meta name="twitter:image" content="https://ahmed-kholief-portfolio.vercel.app/fav2.png" />
+
+  <!-- Prevent FOUC: apply theme & language before React mounts -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+      var l = localStorage.getItem('lang');
+      if (l === 'ar') {
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+      }
+    })();
+  </script>
+
   <script type="text/javascript">
     (function () {
       var redirect = sessionStorage.redirect;

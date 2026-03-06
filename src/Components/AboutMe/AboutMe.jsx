@@ -11,12 +11,21 @@ import {
   faReact,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function AboutMe() {
+  const { t } = useLanguage();
+
+  const statsArr = [
+    t.about.stats.projects,
+    t.about.stats.technologies,
+    t.about.stats.lighthouse,
+  ];
+
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-black text-white py-16 md:py-20 lg:py-28"
+      className="relative overflow-hidden bg-surface text-heading py-16 md:py-20 lg:py-28"
     >
       <FloatingFAIcons
         icons={[faCode, faHtml5, faCss3Alt, faJs, faReact, faBootstrap]}
@@ -28,12 +37,12 @@ export default function AboutMe() {
       />
       {/* Neon grid */}
       <div
-        className="absolute inset-0 opacity-20 md:opacity-30"
+        className="absolute inset-0 opacity-5 dark:opacity-20 md:dark:opacity-30"
         style={{
           backgroundImage: `
             radial-gradient(circle at 50% 50%, rgba(59,130,246,0.15), transparent 40%),
-            linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)
+            linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)
           `,
           backgroundSize: "100% 100%, 60px 60px, 60px 60px",
           backgroundPosition: "center, center, center",
@@ -41,53 +50,41 @@ export default function AboutMe() {
       />
 
       {/* Aurora blobs */}
-      <div className="hidden md:block pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full blur-3xl opacity-30 aurora" />
-      <div className="hidden md:block pointer-events-none absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-25 aurora-2" />
+      <div className="hidden md:block pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full blur-3xl opacity-5 dark:opacity-30 aurora" />
+      <div className="hidden md:block pointer-events-none absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-5 dark:opacity-25 aurora-2" />
 
       {/* Star dust */}
-      <div className="pointer-events-none absolute inset-0 stars opacity-20 md:opacity-40" />
+      <div className="pointer-events-none absolute inset-0 stars opacity-0 dark:opacity-20 md:dark:opacity-40" />
 
       {/* Content */}
       <div className="relative container mx-auto px-6 md:px-20">
         {/* Header */}
         <header className="max-w-3xl" data-aos="fade-right">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs md:text-sm tracking-wider border border-white/20">
+          <span className="inline-flex items-center gap-2 rounded-full bg-surface-elevated px-3 py-1 text-xs md:text-sm tracking-wider border border-stroke">
             <span className="h-2 w-2 rounded-full bg-primary-400 shadow-[0_0_10px_rgba(96,165,250,0.9)]" />
-            ABOUT ME
+            {t.about.badge}
           </span>
 
-          <p className="mt-4 text-white/80">
-            I&apos;m a Civil Engineer turned Frontend Developer. My curiosity
-            for technology and problem‑solving led me to study programming and
-            shift my career into web development. Today I build modern, fast,
-            and accessible interfaces.
-          </p>
-          {/* New line for certification */}
-          <div className="mt-3 flex items-center gap-2 text-primary-200 font-medium">
-            <div className="mt-3 flex items-center gap-3 text-primary-200 font-medium">
-              <div className="h-2 w-2 shrink-0  rounded-full bg-primary-400 shadow-[0_0_8px_rgba(96,165,250,0.9)]" />
+          <p className="mt-4 text-body">{t.about.intro}</p>
 
-              <p>
-                Graduated with a Certified Diploma in Frontend Development from
-                ITI (Information Technology Institute)
-              </p>
+          {/* Certifications */}
+          <div className="mt-3 flex items-center gap-2 text-primary-700 dark:text-primary-200 font-medium">
+            <div className="mt-3 flex items-center gap-3 text-primary-700 dark:text-primary-200 font-medium">
+              <div className="h-2 w-2 shrink-0 rounded-full bg-primary-400 shadow-[0_0_8px_rgba(96,165,250,0.9)]" />
+              <p>{t.about.certification1}</p>
             </div>
           </div>
-          <div className="mt-3 flex items-center gap-2 text-primary-200 font-medium">
-            <div className="mt-3 flex items-center gap-3 text-primary-200 font-medium">
-              <div className="h-2 w-2 shrink-0  rounded-full bg-primary-400 shadow-[0_0_8px_rgba(96,165,250,0.9)]" />
-
-              <p>
-                Certified Diploma in Frontend Development from Route IT Training
-                Center
-              </p>
+          <div className="mt-3 flex items-center gap-2 text-primary-700 dark:text-primary-200 font-medium">
+            <div className="mt-3 flex items-center gap-3 text-primary-700 dark:text-primary-200 font-medium">
+              <div className="h-2 w-2 shrink-0 rounded-full bg-primary-400 shadow-[0_0_8px_rgba(96,165,250,0.9)]" />
+              <p>{t.about.certification2}</p>
             </div>
           </div>
         </header>
 
-        {/* Grid: image first on mobile, side-by-side on desktop */}
+        {/* Grid */}
         <div className="mt-10 grid items-start gap-8 md:gap-10 lg:gap-12 lg:grid-cols-2">
-          {/* Image column: first on mobile */}
+          {/* Image column */}
           <div className="order-1 lg:order-none">
             <div
               className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 mx-auto"
@@ -97,13 +94,12 @@ export default function AboutMe() {
               <img
                 src={aboutImg}
                 alt="Ahmed Kholief"
-                className="relative h-full w-full rounded-3xl object-cover ring-1 ring-white/10"
+                className="relative h-full w-full rounded-3xl object-cover ring-1 ring-stroke"
                 loading="lazy"
                 width="600"
                 height="600"
                 sizes="(min-width:1024px) 288px, (min-width:768px) 288px, 192px"
               />
-              {/* small orbiting dot */}
               <span className="absolute -right-2 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-primary-400 shadow-[0_0_18px_rgba(96,165,250,0.9)] animate-ping motion-reduce:hidden" />
             </div>
 
@@ -113,18 +109,12 @@ export default function AboutMe() {
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              {[
-                "React",
-                "Next.js",
-                "JavaScript",
-                "TypeScript",
-                "Tailwind CSS",
-              ].map((t) => (
+              {t.about.quickSkills.map((skill) => (
                 <li
-                  key={t}
-                  className="rounded-xl bg-white/5 px-4 py-3 ring-1 ring-white/10 text-center sm:text-left"
+                  key={skill}
+                  className="rounded-xl bg-surface-card px-4 py-3 ring-1 ring-stroke text-center sm:text-start"
                 >
-                  {t}
+                  {skill}
                 </li>
               ))}
             </ul>
@@ -133,39 +123,34 @@ export default function AboutMe() {
           {/* Text column */}
           <div className="order-2 lg:order-none space-y-7">
             <div
-              className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-md shadow-[0_0_30px_rgba(59,130,246,0.10)]"
+              className="rounded-3xl border border-stroke bg-surface-card p-6 md:p-8 backdrop-blur-md shadow-md dark:shadow-[0_0_30px_rgba(59,130,246,0.10)]"
               data-aos="zoom-in"
             >
-              <h3 className="text-xl font-semibold text-primary-200">
-                Quick Overview
+              <h3 className="text-xl font-semibold text-primary-700 dark:text-primary-200">
+                {t.about.overviewTitle}
               </h3>
-              <p className="mt-3 text-white/80 leading-relaxed">
-                I combine an engineering mindset with modern frontend practices
-                to deliver clean, reusable, and scalable UI systems. I optimize
-                bundle size, use code‑splitting and lazy loading, and leverage
-                skeletons to improve perceived performance.
+              <p className="mt-3 text-body leading-relaxed">
+                {t.about.overviewText}
               </p>
               <div className="mt-7 flex flex-col sm:flex-row flex-wrap items-center gap-3">
-                {/* Download CV */}
                 <a
                   href="Ahmed-Kholief-cv.pdf"
                   download="Ahmed-Kholief-cv.pdf"
-                  className="group relative inline-flex items-center justify-center rounded-full  text-[16px] font-medium"
+                  className="group relative inline-flex items-center justify-center rounded-full text-[16px] font-medium"
                 >
-                  <span className="relative rounded-full  hover:bg-white/10 transition bg-black/60 px-5 py-2.5 border border-white/20">
-                    Download CV
+                  <span className="relative rounded-full hover:bg-surface-elevated transition bg-surface-card px-5 py-2.5 border border-stroke">
+                    {t.about.downloadCV}
                   </span>
                 </a>
 
-                {/* Contact Me */}
                 <a
                   href="https://wa.me/201271989421?text=Hello%20I%20am%20interested%20in%20your%20services"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm hover:bg-white/10 transition"
+                  className="inline-flex items-center gap-2 rounded-full border border-stroke bg-surface-card px-6 py-3 text-sm hover:bg-surface-elevated transition"
                 >
                   <FontAwesomeIcon icon={faWhatsapp} className="text-green-500 text-lg" />
-                  Contact Me
+                  {t.about.contactMe}
                 </a>
               </div>
             </div>
@@ -176,46 +161,33 @@ export default function AboutMe() {
               data-aos="fade-right"
               data-aos-delay="150"
             >
-              {[
-                { label: "Projects", value: "15+" },
-                { label: "Technologies", value: "10+" },
-                { label: "Lighthouse", value: "90%+" },
-              ].map((item) => (
+              {statsArr.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 px-5 py-6 text-center"
+                  className="rounded-2xl border border-stroke bg-surface-card px-5 py-6 text-center"
                 >
-                  <div className="text-3xl font-extrabold text-primary-200">
+                  <div className="text-3xl font-extrabold text-primary-700 dark:text-primary-200">
                     {item.value}
                   </div>
-                  <div className="mt-1 text-sm text-gray-300">{item.label}</div>
+                  <div className="mt-1 text-sm text-muted">{item.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Stack */}
             <div
-              className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8"
+              className="rounded-3xl border border-stroke bg-surface-card p-6 md:p-8"
               data-aos="zoom-in"
               data-aos-delay="200"
             >
-              <h3 className="text-lg font-semibold text-primary-200">
-                Favorite Technologies
+              <h3 className="text-lg font-semibold text-primary-700 dark:text-primary-200">
+                {t.about.favTechTitle}
               </h3>
               <div className="mt-4 flex flex-wrap gap-2">
-                {[
-                  "React",
-                  "Next.js",
-                  "TypeScript",
-                  "Tailwind",
-                  "Bootstrap",
-
-                  "AOS / Framer Motion",
-                  "Vercel / Netlify",
-                ].map((tag) => (
+                {t.about.favTech.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-200"
+                    className="rounded-full border border-stroke bg-surface-card px-3 py-1.5 text-xs text-body"
                   >
                     {tag}
                   </span>
@@ -225,7 +197,6 @@ export default function AboutMe() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }
