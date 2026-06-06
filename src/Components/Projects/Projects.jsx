@@ -2,13 +2,9 @@ import { useState } from "react";
 import Card from "../Card/Card";
 
 // Company projects
-import TokoStoreImg from "../../assets/imgs/toko-store.webp";
-import TokoDashboardImg from "../../assets/imgs/toko-dashboard.webp";
-import StudiOfyImg from "../../assets/imgs/studiofy.webp";
 import MediflowBookingImg from "../../assets/imgs/mediflow-booking.webp";
 import MediflowAdminImg from "../../assets/imgs/mediflow-admin.webp";
 import MediflowDashboardImg from "../../assets/imgs/mediflow-dashboard.webp";
-import SignatureStaysImg from "../../assets/imgs/signature-stays.webp";
 import StudiioImg from "../../assets/imgs/studiio.webp";
 
 // Personal projects
@@ -44,15 +40,11 @@ export default function Projects() {
   const categories = ["All", "Company", "React", "JavaScript", "CSS & HTML"];
 
   const projects = [
-    { title: "Signature Stays", img: SignatureStaysImg, liveDemo: "https://signaturestays.io/", category: "Company", tags: ["Next.js", "React", "Booking", "Tailwind"] },
     { title: "Studiio", img: StudiioImg, liveDemo: "https://studiio-app.netlify.app/", category: "Company", tags: ["Next.js", "React", "Dashboard", "i18n"] },
-    { title: "Toko Store", img: TokoStoreImg, liveDemo: "https://toko.mantaray.digital/", category: "Company", tags: ["Next.js", "React", "E-commerce", "Tailwind"] },
-    { title: "Toko Dashboard", img: TokoDashboardImg, liveDemo: "https://dashboard.toko.mantaray.digital/login", category: "Company", tags: ["Next.js", "React", "Dashboard", "Tailwind"] },
-    { title: "Studiofy", img: StudiOfyImg, liveDemo: "https://web-production-5875b.up.railway.app/login", category: "Company", tags: ["Next.js", "React", "AI", "SaaS"] },
+    { title: "Fresh Cart", img: FreshCartImg, liveDemo: "https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin", repo: "https://github.com/AhmedOsama143/FreshCart", category: "React", tags: ["React", "API", "Context", "Tailwind"] },
     { title: "MediFlow Booking", img: MediflowBookingImg, liveDemo: "https://mediflow-sigma-sooty.vercel.app/en/book/admin-ml9boma0", category: "Company", tags: ["Next.js", "React", "i18n", "Healthcare"] },
     { title: "MediFlow Admin", img: MediflowAdminImg, liveDemo: "https://mediflow-sigma-sooty.vercel.app/en/admin-auth/login", category: "Company", tags: ["Next.js", "React", "Dashboard", "RTL"] },
     { title: "MediFlow Dashboard", img: MediflowDashboardImg, liveDemo: "https://mediflow-sigma-sooty.vercel.app/en/dashboard", category: "Company", tags: ["Next.js", "React", "Dashboard", "i18n"] },
-    { title: "Fresh Cart", img: FreshCartImg, liveDemo: "https://ahmed-osama-fresh-cart-psi-five.vercel.app/signin", repo: "https://github.com/AhmedOsama143/FreshCart", category: "React", tags: ["React", "API", "Context", "Tailwind"] },
     { title: "SPYLT CAN ANIMATION", img: Spylt, liveDemo: "https://ahmedosama143.github.io/SPYLT-Milk/", repo: "https://github.com/AhmedOsama143/SPYLT-Milk", category: "React", tags: ["React", "GSAP", "Responsive"] },
     { title: "Cukur Store", img: SimpleEcommerce, liveDemo: "https://ahmedosama143.github.io/simple-E-Commerce/", repo: "https://github.com/AhmedOsama143/simple-E-Commerce", category: "React", tags: ["React", "Router"] },
     { title: "Fashion", img: Fashion, liveDemo: "https://fashion-five-lac.vercel.app/", repo: "https://github.com/AhmedOsama143/fashion", category: "JavaScript", tags: ["JavaScript", "API", "CSS"] },

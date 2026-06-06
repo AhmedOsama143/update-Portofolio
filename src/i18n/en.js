@@ -17,7 +17,7 @@ const en = {
   },
 
   /* ── Theme / Language ── */
-  theme: { toggleLight: "Switch to light mode", toggleDark: "Switch to dark mode" },
+  theme: { toggleLight: "Light mode", toggleDark: "Dark mode" },
   language: { switchToAr: "عربي", switchToEn: "English" },
 
   /* ── Loading ── */
@@ -127,16 +127,8 @@ const en = {
     liveDemo: "Live Demo",
     github: "GitHub",
     descriptions: {
-      "Signature Stays":
-        "Luxury apartment rental platform in New Cairo featuring property listings, guest reviews, booking search, and a partner management program. Fully responsive with a modern, elegant design.",
       Studiio:
         "Comprehensive studio management SaaS for gyms and fitness centers. Manages class templates, schedules, customers, payments, staff, and multi-branch operations with bilingual English/Arabic support.",
-      "Toko Store":
-        "E-commerce platform for collectible 3D-printed characters and mystery boxes. Features product browsing, FAQ section, Instagram feed integration, and a vibrant brand experience.",
-      "Toko Dashboard":
-        "Admin management dashboard for the Toko collectibles platform. Handles products, orders, inventory tracking, and business analytics.",
-      Studiofy:
-        "AI-powered product photography SaaS that transforms product images with professional studio backgrounds in under 60 seconds. Features Google OAuth and credit-based usage.",
       "MediFlow Booking":
         "Patient-facing booking interface for the MediFlow clinic management system. Supports bilingual English/Arabic with seamless appointment scheduling.",
       "MediFlow Admin":

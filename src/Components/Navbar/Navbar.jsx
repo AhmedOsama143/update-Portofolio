@@ -81,19 +81,19 @@ export default function Navbar() {
               </h1>
             </div>
 
-            <ul className="hidden lg:flex items-center pt-2 gap-10 text-heading">
+            <ul className="hidden lg:flex items-center pt-2 gap-8 text-heading">
+              {/* Section links — text only */}
               {NAV_LINKS.map((link) => (
                 <li key={link.id}>
                   <a
                     href={link.href}
-                    className={`flex flex-col items-center gap-2 transition-colors relative ${
+                    className={`relative text-sm transition-colors ${
                       activeSection === link.id
                         ? "text-primary-500 dark:text-primary-300"
                         : "hover:text-primary-500 dark:hover:text-primary-300"
                     }`}
                   >
-                    <FontAwesomeIcon icon={link.icon} />
-                    <span className="text-sm">{link.label}</span>
+                    {link.label}
                     {activeSection === link.id && (
                       <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-1.5 w-1.5 rounded-full bg-primary-400 shadow-[0_0_8px_rgba(96,165,250,0.9)]" />
                     )}
@@ -101,56 +101,48 @@ export default function Navbar() {
                 </li>
               ))}
 
-              <li>
+              {/* Divider */}
+              <li className="h-6 w-px bg-stroke" aria-hidden="true"></li>
+
+              {/* Utility cluster — icon only */}
+              <li className="flex items-center gap-5">
                 <a
                   href="https://github.com/AhmedOsama143"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-1 text-3xl hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
+                  title={t.nav.github}
+                  aria-label={t.nav.github}
+                  className="hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
                 >
-                  <FontAwesomeIcon icon={faGithub} className="text-2xl" />
-                  <span className="text-sm">{t.nav.github}</span>
+                  <FontAwesomeIcon icon={faGithub} className="text-xl" />
                 </a>
-              </li>
-              <li>
+
                 <a
                   href="Ahmed-Kholief-cv.pdf"
                   download="Ahmed-Kholief-cv.pdf"
-                  className="flex flex-col items-center gap-1 hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
+                  title={t.nav.cv}
+                  aria-label={t.nav.cv}
+                  className="hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
                 >
-                  <FontAwesomeIcon icon={faDownload} className="text-2xl" />
-                  <span className="text-sm">{t.nav.cv}</span>
+                  <FontAwesomeIcon icon={faDownload} className="text-xl" />
                 </a>
-              </li>
 
-              {/* Theme toggle */}
-              <li>
                 <button
                   onClick={toggleTheme}
+                  title={isDark ? t.theme.toggleLight : t.theme.toggleDark}
                   aria-label={isDark ? t.theme.toggleLight : t.theme.toggleDark}
-                  className="flex flex-col items-center gap-1 hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
+                  className="hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
                 >
-                  <FontAwesomeIcon
-                    icon={isDark ? faSun : faMoon}
-                    className="text-2xl"
-                  />
-                  <span className="text-sm">
-                    {isDark ? t.theme.toggleLight : t.theme.toggleDark}
-                  </span>
+                  <FontAwesomeIcon icon={isDark ? faSun : faMoon} className="text-xl" />
                 </button>
-              </li>
 
-              {/* Language toggle */}
-              <li>
                 <button
                   onClick={toggleLang}
+                  title={lang === "en" ? t.language.switchToAr : t.language.switchToEn}
                   aria-label={lang === "en" ? t.language.switchToAr : t.language.switchToEn}
-                  className="flex flex-col items-center gap-1 hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
+                  className="hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
                 >
-                  <FontAwesomeIcon icon={faGlobe} className="text-2xl" />
-                  <span className="text-sm">
-                    {lang === "en" ? t.language.switchToAr : t.language.switchToEn}
-                  </span>
+                  <FontAwesomeIcon icon={faGlobe} className="text-xl" />
                 </button>
               </li>
             </ul>
