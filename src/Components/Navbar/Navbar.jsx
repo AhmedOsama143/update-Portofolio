@@ -118,8 +118,8 @@ export default function Navbar() {
                 </a>
 
                 <a
-                  href="Ahmed-Kholief-cv.pdf"
-                  download="Ahmed-Kholief-cv.pdf"
+                  href="Ahmed_Kholief_CV.pdf"
+                  download="Ahmed_Kholief_CV.pdf"
                   title={t.nav.cv}
                   aria-label={t.nav.cv}
                   className="hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
@@ -224,8 +224,8 @@ export default function Navbar() {
                 </li>
                 <li>
                   <a
-                    href="Ahmed-Kholief-cv.pdf"
-                    download="Ahmed-Kholief-cv.pdf"
+                    href="Ahmed_Kholief_CV.pdf"
+                    download="Ahmed_Kholief_CV.pdf"
                     className="flex flex-col items-start gap-1 hover:text-primary-500 dark:hover:text-primary-300 transition-colors"
                   >
                     <FontAwesomeIcon icon={faDownload} className="text-3xl" />

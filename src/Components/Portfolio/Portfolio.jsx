@@ -122,8 +122,8 @@ export default function Portfolio() {
                 </a>
 
                 <a
-                  href="Ahmed-Kholief-cv.pdf"
-                  download="Ahmed-Kholief-cv.pdf"
+                  href="Ahmed_Kholief_CV.pdf"
+                  download="Ahmed_Kholief_CV.pdf"
                   className="group relative inline-flex items-center justify-center rounded-full sm:ms-4 text-sm font-medium"
                 >
                   <span className="relative rounded-full bg-surface-card px-5 py-2.5 hover:bg-surface-elevated transition border border-stroke">

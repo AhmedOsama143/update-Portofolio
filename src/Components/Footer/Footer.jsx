@@ -93,7 +93,7 @@ export default function Footer() {
                 { href: "#projects", label: t.footer.quickLinks.projects },
                 { href: "#contact", label: t.footer.quickLinks.contact },
                 {
-                  href: "Ahmed-Kholief-cv.pdf",
+                  href: "Ahmed_Kholief_CV.pdf",
                   label: t.footer.quickLinks.downloadCV,
                   external: true,
                   download: true,

@@ -134,8 +134,8 @@ export default function AboutMe() {
               </p>
               <div className="mt-7 flex flex-col sm:flex-row flex-wrap items-center gap-3">
                 <a
-                  href="Ahmed-Kholief-cv.pdf"
-                  download="Ahmed-Kholief-cv.pdf"
+                  href="Ahmed_Kholief_CV.pdf"
+                  download="Ahmed_Kholief_CV.pdf"
                   className="group relative inline-flex items-center justify-center rounded-full text-[16px] font-medium"
                 >
                   <span className="relative rounded-full hover:bg-surface-elevated transition bg-surface-card px-5 py-2.5 border border-stroke">
